@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.offer.mapper.EnterpriseMessageMapper">
+  <resultMap id="BaseResultMap" type="com.example.offer.model.EnterpriseMessage">
+    <id column="enterId" jdbcType="INTEGER" property="enterid" />
+    <result column="enterName" jdbcType="VARCHAR" property="entername" />
+    <result column="enterIntroduce" jdbcType="VARCHAR" property="enterintroduce" />
+    <result column="enterSize" jdbcType="INTEGER" property="entersize" />
+    <result column="enterWelfare" jdbcType="VARCHAR" property="enterwelfare" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    enterId, enterName, enterIntroduce, enterSize, enterWelfare
+  </sql>
+  <select id="selectByExample" parameterType="com.example.offer.model.EnterpriseMessageExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from enterprise_message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from enterprise_message
+    where enterId = #{enterid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from enterprise_message
+    where enterId = #{enterid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.offer.model.EnterpriseMessageExample">
+    delete from enterprise_message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.offer.model.EnterpriseMessage">
+    insert into enterprise_message (enterId, enterName, enterIntroduce, 
+      enterSize, enterWelfare)
+    values (#{enterid,jdbcType=INTEGER}, #{entername,jdbcType=VARCHAR}, #{enterintroduce,jdbcType=VARCHAR}, 
+      #{entersize,jdbcType=INTEGER}, #{enterwelfare,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.offer.model.EnterpriseMessage">
+    insert into enterprise_message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="enterid != null">
+        enterId,
+      </if>
+      <if test="entername != null">
+        enterName,
+      </if>
+      <if test="enterintroduce != null">
+        enterIntroduce,
+      </if>
+      <if test="entersize != null">
+        enterSize,
+      </if>
+      <if test="enterwelfare != null">
+        enterWelfare,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="enterid != null">
+        #{enterid,jdbcType=INTEGER},
+      </if>
+      <if test="entername != null">
+        #{entername,jdbcType=VARCHAR},
+      </if>
+      <if test="enterintroduce != null">
+        #{enterintroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="entersize != null">
+        #{entersize,jdbcType=INTEGER},
+      </if>
+      <if test="enterwelfare != null">
+        #{enterwelfare,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.offer.model.EnterpriseMessageExample" resultType="java.lang.Long">
+    select count(*) from enterprise_message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update enterprise_message
+    <set>
+      <if test="record.enterid != null">
+        enterId = #{record.enterid,jdbcType=INTEGER},
+      </if>
+      <if test="record.entername != null">
+        enterName = #{record.entername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterintroduce != null">
+        enterIntroduce = #{record.enterintroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entersize != null">
+        enterSize = #{record.entersize,jdbcType=INTEGER},
+      </if>
+      <if test="record.enterwelfare != null">
+        enterWelfare = #{record.enterwelfare,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update enterprise_message
+    set enterId = #{record.enterid,jdbcType=INTEGER},
+      enterName = #{record.entername,jdbcType=VARCHAR},
+      enterIntroduce = #{record.enterintroduce,jdbcType=VARCHAR},
+      enterSize = #{record.entersize,jdbcType=INTEGER},
+      enterWelfare = #{record.enterwelfare,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.offer.model.EnterpriseMessage">
+    update enterprise_message
+    <set>
+      <if test="entername != null">
+        enterName = #{entername,jdbcType=VARCHAR},
+      </if>
+      <if test="enterintroduce != null">
+        enterIntroduce = #{enterintroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="entersize != null">
+        enterSize = #{entersize,jdbcType=INTEGER},
+      </if>
+      <if test="enterwelfare != null">
+        enterWelfare = #{enterwelfare,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where enterId = #{enterid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.offer.model.EnterpriseMessage">
+    update enterprise_message
+    set enterName = #{entername,jdbcType=VARCHAR},
+      enterIntroduce = #{enterintroduce,jdbcType=VARCHAR},
+      enterSize = #{entersize,jdbcType=INTEGER},
+      enterWelfare = #{enterwelfare,jdbcType=VARCHAR}
+    where enterId = #{enterid,jdbcType=INTEGER}
+  </update>
+</mapper>

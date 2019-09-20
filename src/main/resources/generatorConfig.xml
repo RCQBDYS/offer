@@ -16,6 +16,10 @@
         <!--生成mapper.xml时覆盖原文件-->
         <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
         <!--配置数据库连接-->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
         <jdbcConnection driverClass="${jdbc.driverClass}"
                         connectionURL="${jdbc.connectionURL}"
                         userId="${jdbc.userId}"
@@ -32,9 +36,16 @@
                              targetProject="src/main/java"/>
         <!--生成全部表tableName设为%-->
 
-        <table tableName="admin">
-
-        </table>
+        <table tableName="admin"></table>
+        <table tableName="educational_experience"></table>
+        <table tableName="enterprise_message"></table>
+        <table tableName="post_message"></table>
+        <table tableName="project_experience"></table>
+        <table tableName="put_post"></table>
+        <table tableName="skill_wish"></table>
+        <table tableName="user"></table>
+        <table tableName="user_info"></table>
+        <table tableName="work_experience"></table>
 
 
 
