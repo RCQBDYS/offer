@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.offer.mapper.PutPostMapper">
+  <resultMap id="BaseResultMap" type="com.example.offer.model.PutPost">
+    <id column="putId" jdbcType="INTEGER" property="putid" />
+    <result column="putName" jdbcType="VARCHAR" property="putname" />
+    <result column="putSkill" jdbcType="VARCHAR" property="putskill" />
+    <result column="putSalary" jdbcType="DOUBLE" property="putsalary" />
+    <result column="enterId" jdbcType="INTEGER" property="enterid" />
+    <result column="putNum" jdbcType="INTEGER" property="putnum" />
+    <result column="putIntroduce" jdbcType="VARCHAR" property="putintroduce" />
+    <result column="putRequire" jdbcType="VARCHAR" property="putrequire" />
+    <result column="putAddress" jdbcType="VARCHAR" property="putaddress" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    putId, putName, putSkill, putSalary, enterId, putNum, putIntroduce, putRequire, putAddress
+  </sql>
+  <select id="selectByExample" parameterType="com.example.offer.model.PutPostExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from put_post
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from put_post
+    where putId = #{putid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from put_post
+    where putId = #{putid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.offer.model.PutPostExample">
+    delete from put_post
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.offer.model.PutPost">
+    insert into put_post (putId, putName, putSkill, 
+      putSalary, enterId, putNum, 
+      putIntroduce, putRequire, putAddress
+      )
+    values (#{putid,jdbcType=INTEGER}, #{putname,jdbcType=VARCHAR}, #{putskill,jdbcType=VARCHAR}, 
+      #{putsalary,jdbcType=DOUBLE}, #{enterid,jdbcType=INTEGER}, #{putnum,jdbcType=INTEGER}, 
+      #{putintroduce,jdbcType=VARCHAR}, #{putrequire,jdbcType=VARCHAR}, #{putaddress,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.offer.model.PutPost">
+    insert into put_post
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="putid != null">
+        putId,
+      </if>
+      <if test="putname != null">
+        putName,
+      </if>
+      <if test="putskill != null">
+        putSkill,
+      </if>
+      <if test="putsalary != null">
+        putSalary,
+      </if>
+      <if test="enterid != null">
+        enterId,
+      </if>
+      <if test="putnum != null">
+        putNum,
+      </if>
+      <if test="putintroduce != null">
+        putIntroduce,
+      </if>
+      <if test="putrequire != null">
+        putRequire,
+      </if>
+      <if test="putaddress != null">
+        putAddress,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="putid != null">
+        #{putid,jdbcType=INTEGER},
+      </if>
+      <if test="putname != null">
+        #{putname,jdbcType=VARCHAR},
+      </if>
+      <if test="putskill != null">
+        #{putskill,jdbcType=VARCHAR},
+      </if>
+      <if test="putsalary != null">
+        #{putsalary,jdbcType=DOUBLE},
+      </if>
+      <if test="enterid != null">
+        #{enterid,jdbcType=INTEGER},
+      </if>
+      <if test="putnum != null">
+        #{putnum,jdbcType=INTEGER},
+      </if>
+      <if test="putintroduce != null">
+        #{putintroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="putrequire != null">
+        #{putrequire,jdbcType=VARCHAR},
+      </if>
+      <if test="putaddress != null">
+        #{putaddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.offer.model.PutPostExample" resultType="java.lang.Long">
+    select count(*) from put_post
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update put_post
+    <set>
+      <if test="record.putid != null">
+        putId = #{record.putid,jdbcType=INTEGER},
+      </if>
+      <if test="record.putname != null">
+        putName = #{record.putname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.putskill != null">
+        putSkill = #{record.putskill,jdbcType=VARCHAR},
+      </if>
+      <if test="record.putsalary != null">
+        putSalary = #{record.putsalary,jdbcType=DOUBLE},
+      </if>
+      <if test="record.enterid != null">
+        enterId = #{record.enterid,jdbcType=INTEGER},
+      </if>
+      <if test="record.putnum != null">
+        putNum = #{record.putnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.putintroduce != null">
+        putIntroduce = #{record.putintroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="record.putrequire != null">
+        putRequire = #{record.putrequire,jdbcType=VARCHAR},
+      </if>
+      <if test="record.putaddress != null">
+        putAddress = #{record.putaddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update put_post
+    set putId = #{record.putid,jdbcType=INTEGER},
+      putName = #{record.putname,jdbcType=VARCHAR},
+      putSkill = #{record.putskill,jdbcType=VARCHAR},
+      putSalary = #{record.putsalary,jdbcType=DOUBLE},
+      enterId = #{record.enterid,jdbcType=INTEGER},
+      putNum = #{record.putnum,jdbcType=INTEGER},
+      putIntroduce = #{record.putintroduce,jdbcType=VARCHAR},
+      putRequire = #{record.putrequire,jdbcType=VARCHAR},
+      putAddress = #{record.putaddress,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.offer.model.PutPost">
+    update put_post
+    <set>
+      <if test="putname != null">
+        putName = #{putname,jdbcType=VARCHAR},
+      </if>
+      <if test="putskill != null">
+        putSkill = #{putskill,jdbcType=VARCHAR},
+      </if>
+      <if test="putsalary != null">
+        putSalary = #{putsalary,jdbcType=DOUBLE},
+      </if>
+      <if test="enterid != null">
+        enterId = #{enterid,jdbcType=INTEGER},
+      </if>
+      <if test="putnum != null">
+        putNum = #{putnum,jdbcType=INTEGER},
+      </if>
+      <if test="putintroduce != null">
+        putIntroduce = #{putintroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="putrequire != null">
+        putRequire = #{putrequire,jdbcType=VARCHAR},
+      </if>
+      <if test="putaddress != null">
+        putAddress = #{putaddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where putId = #{putid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.offer.model.PutPost">
+    update put_post
+    set putName = #{putname,jdbcType=VARCHAR},
+      putSkill = #{putskill,jdbcType=VARCHAR},
+      putSalary = #{putsalary,jdbcType=DOUBLE},
+      enterId = #{enterid,jdbcType=INTEGER},
+      putNum = #{putnum,jdbcType=INTEGER},
+      putIntroduce = #{putintroduce,jdbcType=VARCHAR},
+      putRequire = #{putrequire,jdbcType=VARCHAR},
+      putAddress = #{putaddress,jdbcType=VARCHAR}
+    where putId = #{putid,jdbcType=INTEGER}
+  </update>
+</mapper>
