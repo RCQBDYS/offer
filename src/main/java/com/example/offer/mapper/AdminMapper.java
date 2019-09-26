@@ -1,28 +1,25 @@
 package com.example.offer.mapper;
 
 import com.example.offer.model.Admin;
-import com.example.offer.model.AdminExample;
-import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
+@Mapper
 public interface AdminMapper {
-    long countByExample(AdminExample example);
-
-    int deleteByExample(AdminExample example);
 
     int deleteByPrimaryKey(Integer adminid);
+
+    /*查找数据库中是否存在改用户*/
+    @Select("SELECT * FROM admin WHERE adminName = #{adminName} AND adminPassword=#{adminPassword}")
+    Admin login(@Param("adminName") String adminName,@Param("adminPassword") String adminPassword);
 
     int insert(Admin record);
 
     int insertSelective(Admin record);
 
-    List<Admin> selectByExample(AdminExample example);
-
     Admin selectByPrimaryKey(Integer adminid);
-
-    int updateByExampleSelective(@Param("record") Admin record, @Param("example") AdminExample example);
-
-    int updateByExample(@Param("record") Admin record, @Param("example") AdminExample example);
 
     int updateByPrimaryKeySelective(Admin record);
 

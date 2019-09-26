@@ -3,8 +3,11 @@ package com.example.offer.mapper;
 import com.example.offer.model.EducationalExperience;
 import com.example.offer.model.EducationalExperienceExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface EducationalExperienceMapper {
     long countByExample(EducationalExperienceExample example);
 

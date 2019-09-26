@@ -3,8 +3,11 @@ package com.example.offer.mapper;
 import com.example.offer.model.SkillWish;
 import com.example.offer.model.SkillWishExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface SkillWishMapper {
     long countByExample(SkillWishExample example);
 
