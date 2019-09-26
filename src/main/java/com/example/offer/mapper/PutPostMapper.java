@@ -3,8 +3,11 @@ package com.example.offer.mapper;
 import com.example.offer.model.PutPost;
 import com.example.offer.model.PutPostExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface PutPostMapper {
     long countByExample(PutPostExample example);
 
