@@ -6,9 +6,15 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface UserMapper {
+
+//    通过用户输入的用户和密码，在数据库中进行查找
+    @Select("SELECT * FROM user WHERE userName = #{userName} AND userPassword=#{userPassword}")
+    User login(@Param("userName") String userName,@Param("userPassword") String userPassword);
+
     long countByExample(UserExample example);
 
     int deleteByExample(UserExample example);
