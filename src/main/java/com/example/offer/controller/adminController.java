@@ -20,19 +20,19 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class adminController {
 
-    @Autowired
+    /*@Autowired
     adminServiceImpl adminService;
 
-    /*日志*/
+    *//*日志*//*
     Logger logger = LoggerFactory.getLogger(adminController.class);
 
-    /*设置初始页面未登录页面login*/
+    *//*设置初始页面未登录页面login*//*
     @RequestMapping("/")
     public String log(){
         return "login";
     }
 
-    /*登录处理,不借助mapper映射文件*/
+    *//*登录处理,不借助mapper映射文件*//*
    @PostMapping("/login")
     public String login(String adminName, String adminPassword, HttpServletRequest request){
         Admin admin = adminService.login(adminName,adminPassword);
@@ -49,6 +49,6 @@ public class adminController {
             return "index";
         }
     }
-
+*/
 
 }
