@@ -3,8 +3,11 @@ package com.example.offer.mapper;
 import com.example.offer.model.User;
 import com.example.offer.model.UserExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface UserMapper {
     long countByExample(UserExample example);
 
