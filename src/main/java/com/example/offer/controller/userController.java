@@ -33,7 +33,7 @@ public class userController {
 //    处理登录
     @PostMapping("/login")
     public String login(String userName, String userPassword, HttpServletRequest request){
-        logger.info("userName:" + userName + "userPassword: " + userPassword);
+        logger.info("userName:" + userName + " userPassword: " + userPassword);
         User result = userService.login(userName,userPassword);
         logger.info("result= " + result);
         if(result == null){
