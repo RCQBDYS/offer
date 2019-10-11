@@ -9,6 +9,6 @@ import com.example.offer.model.User;
  */
 
 
-public interface userServiceImpl {
+public interface userService {
     User login(String userName,String userPassword);
 }
