@@ -2,7 +2,7 @@ package com.example.offer.service.impl;
 
 import com.example.offer.mapper.AdminMapper;
 import com.example.offer.model.Admin;
-import com.example.offer.service.adminServiceImpl;
+import com.example.offer.service.adminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class adminService implements adminServiceImpl {
+public class AdminServiceImpl implements adminService {
    @Autowired
     private AdminMapper adminMapper;
 

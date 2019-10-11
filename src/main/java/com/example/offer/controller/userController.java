@@ -1,7 +1,7 @@
 package com.example.offer.controller;
 
 import com.example.offer.model.User;
-import com.example.offer.service.userServiceImpl;
+import com.example.offer.service.userService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 public class userController {
 
     @Autowired
-    userServiceImpl userService;
+    com.example.offer.service.userService userService;
 
 //    实现日志
     Logger logger = LoggerFactory.getLogger(userController.class);
