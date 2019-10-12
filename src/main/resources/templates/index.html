@@ -78,16 +78,16 @@
             <div class="wrapper">
                 <!-- Navigation -->
                 <ul id="nav" class="sf-menu">
-                    <li class="current-menu-item"><a th:href="@{MyCV}">用户模块<span class="subheader">Welcome</span></a></li>
-                    <li><a>企业模块<span class="subheader">Enterprise module</span></a>
+                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{MyCV}">用户模块<span class="subheader">Welcome</span></a></li>
+                    <li th:class="${currentUrl=='enterprise'?'current-menu-item':''}"><a>企业模块<span class="subheader">Enterprise module</span></a>
                         <ul>
                             <li><a href="/enMessageEdit.html"><span>企业个人信息</span></a></li>
                             <li><a href="/postMessage.html"><span>招聘岗位的发布</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="blog.html">简历管理<span class="subheader">Read our posts</span></a></li>
-                    <li><a href="/postSearch.html">职业搜索<span class="subheader">Career search</span></a></li>
-                    <li><a href="gallery.html">系统管理<span class="subheader">Featured work</span></a>
+                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="blog.html">简历管理<span class="subheader">Read our posts</span></a></li>
+                    <li th:class="${currentUrl=='postSearch'?'current-menu-item':''}"><a href="/postSearch.html">职业搜索<span class="subheader">Career search</span></a></li>
+                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="gallery.html">系统管理<span class="subheader">Featured work</span></a>
                         <ul>
                             <li><a href="gallery.html"><span> Four columns</span></a></li>
                             <li><a href="gallery-3.html"><span> Three columns </span></a></li>
@@ -95,8 +95,8 @@
                             <li><a href="video-gallery.html"><span> Video gallery </span></a></li>
                         </ul>
                     </li>
-                    <li><a href="contact.html">职场资讯<span class="subheader">Get in touch</span></a></li>
-                    <li><a href="contact.html">我的面试<span class="subheader">Get in touch</span></a></li>
+                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="contact.html">职场资讯<span class="subheader">Get in touch</span></a></li>
+                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="contact.html">我的面试<span class="subheader">Get in touch</span></a></li>
                 </ul>
                 <!-- Navigation -->
             </div>

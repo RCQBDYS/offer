@@ -110,8 +110,9 @@
 </head>
 <body>
 <!--topMenu-->
-<div id="menu" th:replace="index::TopMenu"></div>
+<div id="menu" th:replace="~{index::TopMenu(currentUrl='postSearch')}"></div>
 <!--content-->
 <div id="main" th:fragment="LowerContent"></div>
+
 </body>
 </html>
