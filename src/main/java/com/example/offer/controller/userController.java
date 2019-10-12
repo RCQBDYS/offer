@@ -45,11 +45,16 @@ public class userController {
 
 //    处理注册信息
 
-    @PostMapping("/register")
+    @RequestMapping("/register.html")
     public String register(){
 
-
-        return "";
+        return "register";
     }
 
+//    处理登录返回请求
+    @RequestMapping("/login.html")
+    public String toPage(){
+        return "login";
+    }
+//     处理注册账号
 }
