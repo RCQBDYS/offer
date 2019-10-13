@@ -81,7 +81,7 @@
                     <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{MyCV}">用户模块<span class="subheader">Welcome</span></a></li>
                     <li th:class="${currentUrl=='enterprise'?'current-menu-item':''}"><a>企业模块<span class="subheader">Enterprise module</span></a>
                         <ul>
-                            <li><a href="/enMessageEdit.html"><span>企业个人信息</span></a></li>
+                            <li><a th:href="@{/enMessageList/} + ${session.userId}"><span>企业个人信息</span></a></li>
                             <li><a href="/postMessage.html"><span>招聘岗位的发布</span></a></li>
                         </ul>
                     </li>

@@ -8,8 +8,6 @@ import java.io.Serializable;
 
 @Data
 public class User implements Serializable {
-    @NotEmpty(message="用户名不能为空")
-    private String username;
 
     @NotEmpty(message="密码不能为空")
     @Length(min=3, message="密码长度不能少于3位")
@@ -18,6 +16,8 @@ public class User implements Serializable {
     private String userType;
 
     private String userPassword;
+
+    private int userId;
 
     public String getUserType() {
         return userType;
