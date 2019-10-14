@@ -1,8 +1,14 @@
 package com.example.offer.controller;
 
+import com.example.offer.model.EnterpriseMessage;
+import com.example.offer.service.EMessageService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -13,8 +19,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class EnterMessageController {
 
-    @RequestMapping("/enMessageEdit.html")
-    public String toPageEnter(Model model){
+    @Autowired
+    EMessageService messageService;
+
+
+
+    Logger logger = LoggerFactory.getLogger(userController.class);
+
+
+    @RequestMapping("/enMessageList/{userId}")
+    public String enMessageList(@PathVariable("userId") Long userId, Model model){
+        logger.info("userId= " + userId);
+        EnterpriseMessage enterpriseMessage = messageService.selectUserId(userId);
+        model.addAttribute(enterpriseMessage);
         return "enMessageEdit";
     }
 
@@ -23,5 +40,9 @@ public class EnterMessageController {
         return "postMessage";
     }
 
+    @PostMapping("/editEnterMessage")
+    public String editMessage(Model model){
+        return "index";
+    }
 
 }

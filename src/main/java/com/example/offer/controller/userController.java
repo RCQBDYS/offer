@@ -36,9 +36,11 @@ public class userController {
         logger.info("userName:" + userName + " userPassword: " + userPassword);
         User result = userService.login(userName,userPassword);
         logger.info("result= " + result);
+        int userId = result.getUserId();
         if(result == null){
             return "login";
         }else{
+            request.getSession().setAttribute("userId",userId);
             return "index";
         }
     }
