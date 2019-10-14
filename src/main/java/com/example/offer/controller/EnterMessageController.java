@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,7 @@ public class EnterMessageController {
     Logger logger = LoggerFactory.getLogger(userController.class);
 
 
-    @RequestMapping("/enMessageList/{userId}")
+    @GetMapping("/enMessageList/{userId}")
     public String enMessageList(@PathVariable("userId") Long userId, Model model){
         logger.info("userId= " + userId);
         EnterpriseMessage enterpriseMessage = messageService.selectUserId(userId);
@@ -41,7 +42,9 @@ public class EnterMessageController {
     }
 
     @PostMapping("/editEnterMessage")
-    public String editMessage(Model model){
+    public String editMessage(EnterpriseMessage enterpriseMessage){
+        logger.info(enterpriseMessage.toString());
+        messageService.update(enterpriseMessage);
         return "index";
     }
 

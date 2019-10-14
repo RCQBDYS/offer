@@ -21,7 +21,7 @@ public class EMessageServiceImpl implements EMessageService {
 
     @Override
     public int update(EnterpriseMessage enterpriseMessage) {
-        return 0;
+        return messageMapper.update(enterpriseMessage);
     }
 
     @Override
