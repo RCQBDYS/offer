@@ -9,25 +9,9 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface EnterpriseMessageMapper {
-    long countByExample(EnterpriseMessageExample example);
 
-    int deleteByExample(EnterpriseMessageExample example);
+    EnterpriseMessage selectUserId(Long userId);
 
-    int deleteByPrimaryKey(Integer enterid);
+    int update(EnterpriseMessage enterpriseMessage);
 
-    int insert(EnterpriseMessage record);
-
-    int insertSelective(EnterpriseMessage record);
-
-    List<EnterpriseMessage> selectByExample(EnterpriseMessageExample example);
-
-    EnterpriseMessage selectByPrimaryKey(Integer enterid);
-
-    int updateByExampleSelective(@Param("record") EnterpriseMessage record, @Param("example") EnterpriseMessageExample example);
-
-    int updateByExample(@Param("record") EnterpriseMessage record, @Param("example") EnterpriseMessageExample example);
-
-    int updateByPrimaryKeySelective(EnterpriseMessage record);
-
-    int updateByPrimaryKey(EnterpriseMessage record);
 }

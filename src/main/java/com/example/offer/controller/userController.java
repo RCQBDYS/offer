@@ -1,7 +1,7 @@
 package com.example.offer.controller;
 
 import com.example.offer.model.User;
-import com.example.offer.service.userServiceImpl;
+import com.example.offer.service.userService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 public class userController {
 
     @Autowired
-    userServiceImpl userService;
+    com.example.offer.service.userService userService;
 
 //    实现日志
     Logger logger = LoggerFactory.getLogger(userController.class);
@@ -36,20 +36,28 @@ public class userController {
         logger.info("userName:" + userName + " userPassword: " + userPassword);
         User result = userService.login(userName,userPassword);
         logger.info("result= " + result);
+        int userId = result.getUserId();
         if(result == null){
             return "login";
         }else{
             httpSession.setAttribute("userName",userName);
+            request.getSession().setAttribute("userId",userId);
+
             return "index";
         }
     }
 
 //    处理注册信息
 
-    @PostMapping("/register")
+    @RequestMapping("/register.html")
     public String register(){
-
-        return "";
+        return "register";
     }
 
+//    处理登录返回请求
+    @RequestMapping("/login.html")
+    public String toPage(){
+        return "login";
+    }
+//     处理注册账号
 }
