@@ -10,9 +10,9 @@ public class WorkExperience implements Serializable {
 
     private String workjob;
 
-    private Date workstartdate;
+    private String workstartdate;
 
-    private Date workenddate;
+    private String workenddate;
 
     private String workcontent;
 
@@ -46,19 +46,19 @@ public class WorkExperience implements Serializable {
         this.workjob = workjob;
     }
 
-    public Date getWorkstartdate() {
+    public String getWorkstartdate() {
         return workstartdate;
     }
 
-    public void setWorkstartdate(Date workstartdate) {
+    public void setWorkstartdate(String workstartdate) {
         this.workstartdate = workstartdate;
     }
 
-    public Date getWorkenddate() {
+    public String getWorkenddate() {
         return workenddate;
     }
 
-    public void setWorkenddate(Date workenddate) {
+    public void setWorkenddate(String workenddate) {
         this.workenddate = workenddate;
     }
 

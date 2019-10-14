@@ -49,11 +49,27 @@ public class CVController {
     }
 
     @RequestMapping("/DepartmentList")
-    public String department1( ModelMap modelMap) {
-        UserInfo userInfo = userinfoServiceImpl.UserInfoList("root");
-        modelMap.addAttribute("userInfo",userInfo);
-        System.out.println("跳转测试页面1");
-        return "userinfo";
+    public String department1( ModelMap modelMap,HttpServletRequest request,HttpServletResponse response) {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = null;
+        String userName = (String)request.getSession().getAttribute("userName");
+        try  {
+            out = response.getWriter();
+        }catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        if(userName != null){
+            UserInfo userInfo = userinfoServiceImpl.UserInfoList("userName");
+            modelMap.addAttribute("userInfo",userInfo);
+            System.out.println("跳转测试页面1");
+            return "userinfo";
+        }else{
+            System.out.println("会话失效，请重新登录！");
+            out.print("<script language=\"javascript\">alert('会话失效，请重新登录！');</script>");
+            return "redirect:/";
+        }
+
 
 
     }
