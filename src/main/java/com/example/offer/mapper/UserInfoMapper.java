@@ -6,9 +6,19 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface UserInfoMapper {
+
+    //通过用户名查找个人基本信息
+    @Select("SELECT * FROM user_info WHERE userName = #{userName} ")
+    UserInfo UserInfoList(@Param("userName") String userName);
+
+    //修改个人基本信息
+    int UserInfoEdit( UserInfo userInf);
+
     long countByExample(UserInfoExample example);
 
     int deleteByExample(UserInfoExample example);
@@ -30,4 +40,6 @@ public interface UserInfoMapper {
     int updateByPrimaryKeySelective(UserInfo record);
 
     int updateByPrimaryKey(UserInfo record);
+
+
 }

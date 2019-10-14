@@ -13,11 +13,75 @@ public class UserInfo implements Serializable {
 
     private String userphone;
 
-    private String userage;
+    private int userage;
 
     private String useraddresscity;
 
+    private String userschool;
+
+    private String usermajor;
+
+    private String useremail;
+
+    private String userpolitic;
+
+    private String usereducation;
+
+    private String usersex;
+
     private static final long serialVersionUID = 1L;
+
+    public String getUserschool() {
+        return userschool;
+    }
+
+    public void setUserschool(String userschool) {
+        this.userschool = userschool;
+    }
+
+    public String getUsermajor() {
+        return usermajor;
+    }
+
+    public void setUsermajor(String usermajor) {
+        this.usermajor = usermajor;
+    }
+
+    public String getUseremail() {
+        return useremail;
+    }
+
+    public void setUseremail(String useremail) {
+        this.useremail = useremail;
+    }
+
+    public String getUserpolitic() {
+        return userpolitic;
+    }
+
+    public void setUserpolitic(String userpolitic) {
+        this.userpolitic = userpolitic;
+    }
+
+    public String getUsersex() {
+        return usersex;
+    }
+
+    public void setUsersex(String usersex) {
+        this.usersex = usersex;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getUsereducation() {
+        return usereducation;
+    }
+
+    public void setUsereducation(String usereducation) {
+        this.usereducation = usereducation;
+    }
 
     public Integer getUserid() {
         return userid;
@@ -59,11 +123,11 @@ public class UserInfo implements Serializable {
         this.userphone = userphone;
     }
 
-    public String getUserage() {
+    public int getUserage() {
         return userage;
     }
 
-    public void setUserage(String userage) {
+    public void setUserage(int userage) {
         this.userage = userage;
     }
 

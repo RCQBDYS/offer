@@ -12,11 +12,21 @@ public class ProjectExperience implements Serializable {
 
     private String projectrole;
 
-    private Date projectstartdate;
+    private String projectstartdate;
 
-    private Date projectenddate;
+    private String projectenddate;
 
     private String projectcontent;
+
+    private  String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     private static final long serialVersionUID = 1L;
 
@@ -52,19 +62,19 @@ public class ProjectExperience implements Serializable {
         this.projectrole = projectrole;
     }
 
-    public Date getProjectstartdate() {
+    public String getProjectstartdate() {
         return projectstartdate;
     }
 
-    public void setProjectstartdate(Date projectstartdate) {
+    public void setProjectstartdate(String projectstartdate) {
         this.projectstartdate = projectstartdate;
     }
 
-    public Date getProjectenddate() {
+    public String getProjectenddate() {
         return projectenddate;
     }
 
-    public void setProjectenddate(Date projectenddate) {
+    public void setProjectenddate(String projectenddate) {
         this.projectenddate = projectenddate;
     }
 
@@ -83,7 +93,7 @@ public class ProjectExperience implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", projectid=").append(projectid);
-        sb.append(", userid=").append(userid);
+        sb.append(", username=").append(username);
         sb.append(", projectname=").append(projectname);
         sb.append(", projectrole=").append(projectrole);
         sb.append(", projectstartdate=").append(projectstartdate);

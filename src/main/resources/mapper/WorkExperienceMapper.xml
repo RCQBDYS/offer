@@ -104,10 +104,10 @@
   <insert id="insert" parameterType="com.example.offer.model.WorkExperience">
     insert into work_experience (workId, workCompany, workJob, 
       workStartDate, workEndDate, workContent, 
-      userId)
+      userName)
     values (#{workid,jdbcType=INTEGER}, #{workcompany,jdbcType=VARCHAR}, #{workjob,jdbcType=VARCHAR}, 
       #{workstartdate,jdbcType=DATE}, #{workenddate,jdbcType=DATE}, #{workcontent,jdbcType=VARCHAR}, 
-      #{userid,jdbcType=INTEGER})
+      #{username,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.example.offer.model.WorkExperience">
     insert into work_experience

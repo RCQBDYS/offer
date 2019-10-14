@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -32,13 +32,14 @@ public class userController {
 
 //    处理登录
     @PostMapping("/login")
-    public String login(String userName, String userPassword, HttpServletRequest request){
+    public String login(String userName, String userPassword, HttpServletRequest request,HttpSession httpSession){
         logger.info("userName:" + userName + " userPassword: " + userPassword);
         User result = userService.login(userName,userPassword);
         logger.info("result= " + result);
         if(result == null){
             return "login";
         }else{
+            httpSession.setAttribute("userName",userName);
             return "index";
         }
     }
@@ -47,7 +48,6 @@ public class userController {
 
     @PostMapping("/register")
     public String register(){
-
 
         return "";
     }
