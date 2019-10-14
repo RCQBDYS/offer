@@ -240,4 +240,18 @@
       userAddressCity = #{useraddresscity,jdbcType=VARCHAR}
     where userId = #{userid,jdbcType=INTEGER}
   </update>
+  <update id="UserInfoEdit" parameterType="com.example.offer.model.UserInfo">
+    update user_info
+    set userRealName = #{userrealname,jdbcType=VARCHAR},
+      userIcon = #{usericon,jdbcType=VARCHAR},
+      userPhone = #{userphone,jdbcType=VARCHAR},
+      userAge = #{userage,jdbcType=INTEGER},
+      userAddressCity = #{useraddresscity,jdbcType=VARCHAR},
+      userSex = #{usersex,jdbcType = VARCHAR},
+      userMajor = #{usermajor,jdbcType=VARCHAR},
+      userSchool = #{userschool,jdbcType=VARCHAR},
+      userPolitic = #{userpolitic,jdbcType=VARCHAR},
+      userEmail = #{useremail,jdbcType=VARCHAR}
+    where userName = #{username,jdbcType=VARCHAR}
+  </update>
 </mapper>

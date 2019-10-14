@@ -153,7 +153,43 @@
             </div>
             <!-- 右侧具体内容栏目 -->
             <div id="rightContent" th:fragment="rightContent" style="padding-left: 200px">
-                <h2>欢迎登录火电厂监控管理系统111111</h2>
+                <form action="ExperiseEdit" method="post" enctype="multipart/form-data">
+                    <table border=1; cellpadding=12; cellspacing=0; align=center >
+                        <tr align=center>
+                            <td colspan="6">项目经历</td>
+                        </tr>
+                        <tr th:each="projectexperise,projectexperiStat :${list}">
+                            <td th:text="${projectexperise.getProjectid()}" style="display:none"></td>
+                            <td th:text="${projectexperise.getProjectname()}"></td>
+                            <td th:text="${projectexperise.getProjectrole()}"></td>
+                            <td th:text="${projectexperise.getProjectstartdate()+'至'+projectexperise.getProjectenddate()}"></td>
+                           <!-- <td th:text="${projectexperise.getProjectenddate()}"></td>-->
+                            <td th:text="${projectexperise.getProjectcontent()}"></td>
+                            <td><a class="btn btn-default" th:href="@{ProjectExperienceEdit(id=${projectexperise.getProjectid() })}">修改</a>
+                                <a class="btn btn-default btn-lg active" th:href="@{ProjectExperienceDelete(id=${projectexperise.getProjectid()})}" onclick="return confirm('确定将此记录删除?')" >删除</a>
+                            </td>
+                        </tr>
+                        <tr align=center>
+                            <td colspan="6" style="height:100px"><a th:href="@{ProjectAdd}" >添加</a></td>
+                        </tr>
+                        <tr align=center>
+                            <td colspan="6">教育经历</td>
+                        </tr>
+                        <tr align=center>
+                            <td colspan="6" style="height:100px"><button type = "button" name="Add">添加</button></td>
+                        </tr>
+
+
+
+
+
+
+                        <!--<tr align=center>
+                            <td>电子信箱:</td><td colspan="4" contentEditable="true"></td>
+                        </tr>-->
+                        <tr align=center><td colspan="6" ><button type="submit" class="btn btn-primary"> 保存 </button></td></tr>
+                    </table>
+                </form>
             </div>
             <!-- 滑块js -->
 

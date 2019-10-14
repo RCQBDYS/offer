@@ -18,6 +18,8 @@ public class WorkExperience implements Serializable {
 
     private Integer userid;
 
+    private String username;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getWorkid() {
@@ -89,8 +91,17 @@ public class WorkExperience implements Serializable {
         sb.append(", workenddate=").append(workenddate);
         sb.append(", workcontent=").append(workcontent);
         sb.append(", userid=").append(userid);
+        sb.append(", username=").append(username);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

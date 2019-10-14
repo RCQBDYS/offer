@@ -3,7 +3,7 @@
 <mapper namespace="com.example.offer.mapper.ProjectExperienceMapper">
   <resultMap id="BaseResultMap" type="com.example.offer.model.ProjectExperience">
     <id column="projectId" jdbcType="INTEGER" property="projectid" />
-    <result column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
     <result column="projectName" jdbcType="VARCHAR" property="projectname" />
     <result column="projectRole" jdbcType="VARCHAR" property="projectrole" />
     <result column="projectStartDate" jdbcType="DATE" property="projectstartdate" />
@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    projectId, userId, projectName, projectRole, projectStartDate, projectEndDate, projectContent
+    projectId, userName, projectName, projectRole, projectStartDate, projectEndDate, projectContent
   </sql>
   <select id="selectByExample" parameterType="com.example.offer.model.ProjectExperienceExample" resultMap="BaseResultMap">
     select
@@ -87,7 +87,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
-    <include refid="Base_Column_List" />
+    *
     from project_experience
     where projectId = #{projectid,jdbcType=INTEGER}
   </select>
@@ -102,10 +102,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.example.offer.model.ProjectExperience">
-    insert into project_experience (projectId, userId, projectName, 
+    insert into project_experience (projectId, userName, projectName,
       projectRole, projectStartDate, projectEndDate, 
       projectContent)
-    values (#{projectid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{projectname,jdbcType=VARCHAR}, 
+    values (#{projectid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{projectname,jdbcType=VARCHAR},
       #{projectrole,jdbcType=VARCHAR}, #{projectstartdate,jdbcType=DATE}, #{projectenddate,jdbcType=DATE}, 
       #{projectcontent,jdbcType=VARCHAR})
   </insert>
@@ -210,7 +210,7 @@
     update project_experience
     <set>
       <if test="userid != null">
-        userId = #{userid,jdbcType=INTEGER},
+        userName = #{username,jdbcType=VARCHAR},
       </if>
       <if test="projectname != null">
         projectName = #{projectname,jdbcType=VARCHAR},
@@ -230,14 +230,20 @@
     </set>
     where projectId = #{projectid,jdbcType=INTEGER}
   </update>
+  <!-- 通过项目编号修改项目表-->
   <update id="updateByPrimaryKey" parameterType="com.example.offer.model.ProjectExperience">
     update project_experience
-    set userId = #{userid,jdbcType=INTEGER},
-      projectName = #{projectname,jdbcType=VARCHAR},
+    set projectName = #{projectname,jdbcType=VARCHAR},
       projectRole = #{projectrole,jdbcType=VARCHAR},
       projectStartDate = #{projectstartdate,jdbcType=DATE},
       projectEndDate = #{projectenddate,jdbcType=DATE},
       projectContent = #{projectcontent,jdbcType=VARCHAR}
     where projectId = #{projectid,jdbcType=INTEGER}
   </update>
+
+  <select id="selectByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select *
+    from project_experience
+    where userName = #{username,jdbcType=VARCHAR}
+  </select>
 </mapper>
