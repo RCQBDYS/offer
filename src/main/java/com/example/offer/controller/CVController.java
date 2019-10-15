@@ -60,7 +60,7 @@ public class CVController {
             e.printStackTrace();
         }
         if(userName != null){
-            UserInfo userInfo = userinfoServiceImpl.UserInfoList("userName");
+            UserInfo userInfo = userinfoServiceImpl.UserInfoList(userName);
             modelMap.addAttribute("userInfo",userInfo);
             System.out.println("跳转测试页面1");
             return "userinfo";

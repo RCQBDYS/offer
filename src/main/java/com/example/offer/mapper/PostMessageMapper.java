@@ -9,25 +9,7 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface PostMessageMapper {
-    long countByExample(PostMessageExample example);
 
-    int deleteByExample(PostMessageExample example);
+    List<PostMessage> listAll();
 
-    int deleteByPrimaryKey(Integer postid);
-
-    int insert(PostMessage record);
-
-    int insertSelective(PostMessage record);
-
-    List<PostMessage> selectByExample(PostMessageExample example);
-
-    PostMessage selectByPrimaryKey(Integer postid);
-
-    int updateByExampleSelective(@Param("record") PostMessage record, @Param("example") PostMessageExample example);
-
-    int updateByExample(@Param("record") PostMessage record, @Param("example") PostMessageExample example);
-
-    int updateByPrimaryKeySelective(PostMessage record);
-
-    int updateByPrimaryKey(PostMessage record);
 }
