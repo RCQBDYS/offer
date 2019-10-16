@@ -30,5 +30,9 @@ public class PostMessage implements Serializable {
 
     private Integer postState;
 
+    private User user;
+
+    private EnterpriseMessage enterprise;
+
 
 }
