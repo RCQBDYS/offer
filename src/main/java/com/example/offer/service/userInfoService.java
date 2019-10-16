@@ -10,5 +10,5 @@ import com.example.offer.model.UserInfo;
 public interface userInfoService {
      //查询用户个人基本信息
     UserInfo UserInfoList(String userName);
-
+    UserInfo  check(String userName);
 }
