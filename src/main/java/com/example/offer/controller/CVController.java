@@ -70,6 +70,7 @@ public class CVController {
         if(userName != null){
             UserInfo userInfo = userinfoServiceImpl.UserInfoList(userName);
             System.out.println(userInfo.getUserrealname());
+
             modelMap.addAttribute("userInfo",userInfo);
             System.out.println("跳转用户基本信息页面1"+userInfo.getUserWishJob());
             return "userinfo";
