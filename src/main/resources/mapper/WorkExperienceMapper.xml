@@ -8,7 +8,7 @@
     <result column="workStartDate" jdbcType="DATE" property="workstartdate" />
     <result column="workEndDate" jdbcType="DATE" property="workenddate" />
     <result column="workContent" jdbcType="VARCHAR" property="workcontent" />
-    <result column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    workId, workCompany, workJob, workStartDate, workEndDate, workContent, userId
+    workId, workCompany, workJob, workStartDate, workEndDate, workContent, userName
   </sql>
   <select id="selectByExample" parameterType="com.example.offer.model.WorkExperienceExample" resultMap="BaseResultMap">
     select
@@ -101,13 +101,14 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+  <!-- 添加工作经验-->
   <insert id="insert" parameterType="com.example.offer.model.WorkExperience">
     insert into work_experience (workId, workCompany, workJob, 
       workStartDate, workEndDate, workContent, 
-      userId)
+      userName)
     values (#{workid,jdbcType=INTEGER}, #{workcompany,jdbcType=VARCHAR}, #{workjob,jdbcType=VARCHAR}, 
       #{workstartdate,jdbcType=DATE}, #{workenddate,jdbcType=DATE}, #{workcontent,jdbcType=VARCHAR}, 
-      #{userid,jdbcType=INTEGER})
+      #{username,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.example.offer.model.WorkExperience">
     insert into work_experience
@@ -237,7 +238,7 @@
       workStartDate = #{workstartdate,jdbcType=DATE},
       workEndDate = #{workenddate,jdbcType=DATE},
       workContent = #{workcontent,jdbcType=VARCHAR},
-      userId = #{userid,jdbcType=INTEGER}
+      userName = #{userName,jdbcType=VARCHAR}
     where workId = #{workid,jdbcType=INTEGER}
   </update>
 </mapper>

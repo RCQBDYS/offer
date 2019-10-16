@@ -10,13 +10,15 @@ public class WorkExperience implements Serializable {
 
     private String workjob;
 
-    private Date workstartdate;
+    private String workstartdate;
 
-    private Date workenddate;
+    private String workenddate;
 
     private String workcontent;
 
     private Integer userid;
+
+    private String username;
 
     private static final long serialVersionUID = 1L;
 
@@ -44,19 +46,19 @@ public class WorkExperience implements Serializable {
         this.workjob = workjob;
     }
 
-    public Date getWorkstartdate() {
+    public String getWorkstartdate() {
         return workstartdate;
     }
 
-    public void setWorkstartdate(Date workstartdate) {
+    public void setWorkstartdate(String workstartdate) {
         this.workstartdate = workstartdate;
     }
 
-    public Date getWorkenddate() {
+    public String getWorkenddate() {
         return workenddate;
     }
 
-    public void setWorkenddate(Date workenddate) {
+    public void setWorkenddate(String workenddate) {
         this.workenddate = workenddate;
     }
 
@@ -89,8 +91,17 @@ public class WorkExperience implements Serializable {
         sb.append(", workenddate=").append(workenddate);
         sb.append(", workcontent=").append(workcontent);
         sb.append(", userid=").append(userid);
+        sb.append(", username=").append(username);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

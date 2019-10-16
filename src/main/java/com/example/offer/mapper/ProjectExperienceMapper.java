@@ -21,6 +21,8 @@ public interface ProjectExperienceMapper {
 
     List<ProjectExperience> selectByExample(ProjectExperienceExample example);
 
+    List<ProjectExperience> selectByUserName(String username);
+
     ProjectExperience selectByPrimaryKey(Integer projectid);
 
     int updateByExampleSelective(@Param("record") ProjectExperience record, @Param("example") ProjectExperienceExample example);

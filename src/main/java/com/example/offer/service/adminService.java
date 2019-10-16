@@ -2,7 +2,7 @@ package com.example.offer.service;
 
 import com.example.offer.model.Admin;
 
-public interface adminServiceImpl {
+public interface adminService {
 
     Admin login(String adminName, String adminPassword);
 

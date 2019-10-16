@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>个人基本信息添加</title>
+</head>
+<body>
+<div id="rightContent" th:fragment="rightContent" style="padding-left: 200px">
+    <form action="/UserInfoAddDo" method="post" enctype="multipart/form-data">
+        <table border=1; cellpadding=12; cellspacing=0; align=center th:each="userInfo,userInfoStat:${userInfo}">
+            <tr align=center>
+                <td colspan="5">基本信息</td>
+            </tr>
+            <tr align=center>
+                <td>姓名:</td><td  ><input type = "text" name = "userrealname" value="" required="required"></td>
+                <td>性别:</td><td ><input type = "text" name = "usersex" value="" required="required"></td>
+                <td rowspan="5"  ><input type="file" name = "icon" accept="image/*"></td>
+            </tr>
+            <tr align=center>
+                <td>毕业院校:</td><td ><input type = "text" name = "userschool" value="" required="required"></td>
+                <!--<td>年龄:</td><td name = "userage" th:text = "${userInfo.getUserage()}" contentEditable="true"></td>-->
+                <td>年龄:</td><td ><input type = "text" name = "userage" value="" required="required"></td>
+            </tr>
+            <tr align=center>
+                <td>最高学历:</td><td><input type = "text" name = "usereducation" value="" required="required"></td>
+                <td>政治面貌:</td><td><input type = "text" name = "userpolitic" value="" required="required"></td>
+            </tr>
+            <tr align=center>
+                <td>专业:</td><td ><input type = "text" name = "usermajor" value="" required="required"></td>
+                <td>期望职业:</td><td ><input type = "text" name = "userwishjob" value="" required="required"></td>
+            </tr>
+            <tr align=center>
+                <td>电子信箱:</td><td ><input type = "text" name = "useremail"  value="" required="required"></td>
+                <td>手机号码:</td><td ><input type = "text" name = "userphone" value="" required="required"></td>
+            </tr>
+            <tr align=center>
+                <td>籍贯:</td><td colspan="4" ><input type = "text" name = "useraddresscity" value="" required="required"></td>
+            </tr>
+            <!--<tr align=center>
+                <td>电子信箱:</td><td colspan="4" contentEditable="true"></td>
+            </tr>-->
+            <tr align=center><td colspan="5" ><button type="submit" class="btn btn-primary"> 保存 </button></td></tr>
+        </table>
+    </form>
+</div>
+<!-- 滑块js -->
+
+<script src="js/jquery.nouislider.js"></script>
+
+
+</div>
+</div>
+</body>
+</html>

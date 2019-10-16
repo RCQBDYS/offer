@@ -62,7 +62,7 @@
             <p id="logoP"><img id="logo" alt="火电厂监控管理" src="images/logo.png"><span>火电厂监控管理</span></p>
         </div>
         <div id="personInfor">
-            <p id="userName"><h6 th:text="欢迎您"></h6></p>
+            <p id="userName"><h6 th:text="'欢迎您：' + ${session.userName}"></h6></p>
             <p>
                 <a th:href = "@{LoginOut}" onclick="return confirm('确定退出登录?')">退出登录</a>
             </p>
@@ -70,7 +70,7 @@
         <div class = "meun-item">
             <ul class="menu-item">
                 <li class="current" data-id="department" ><a  th:href = "@{DepartmentList}"  >个人信息</a></li>
-                <li data-id="person"><a th:href = "@{Department}"  >项目经历</a></li>
+                <li data-id="person"><a th:href = "@{ProjectExperienceList}"  >项目经历</a></li>
                 <li data-id="equipment"><a th:href = "@{EquipmentList}"   >教育情况</a></li>
                 <li data-id="material"><a th:href = "@{Department}"  >工作经历</a></li>
                 <li data-id="warehouse"><a th:href = "@{Department}"  >查看简历</a></li>

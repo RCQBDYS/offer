@@ -1,15 +1,6 @@
 package com.example.offer.controller;
 
-import com.example.offer.model.Admin;
-import com.example.offer.service.adminServiceImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author wangshen
@@ -21,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 public class adminController {
 
     /*@Autowired
-    adminServiceImpl adminService;
+    adminService adminService;
 
     *//*日志*//*
     Logger logger = LoggerFactory.getLogger(adminController.class);

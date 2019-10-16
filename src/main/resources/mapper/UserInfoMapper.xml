@@ -102,12 +102,25 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.example.offer.model.UserInfo">
-    insert into user_info (userId, userRealName, userName, 
-      userIcon, userPhone, userAge, 
-      userAddressCity)
-    values (#{userid,jdbcType=INTEGER}, #{userrealname,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
-      #{usericon,jdbcType=VARCHAR}, #{userphone,jdbcType=VARCHAR}, #{userage,jdbcType=VARCHAR}, 
-      #{useraddresscity,jdbcType=VARCHAR})
+    insert into user_info ( userRealName, userName,
+      userIcon, userPhone, userAge,
+      userAddressCity,userSex,userMajor,userSchool,userEmail,userPolitic,userEducation,userWishJob)
+    values
+     #{userrealname,jdbcType=VARCHAR},
+      #{username,jdbcType=VARCHAR},
+      #{usericon,jdbcType=VARCHAR},
+       #{userphone,jdbcType=VARCHAR},
+    #{userage,jdbcType=VARCHAR},
+      #{useraddresscity,jdbcType=VARCHAR},
+        #{usersex,jdbcType = VARCHAR},
+   #{usermajor,jdbcType=VARCHAR},
+   #{userschool,jdbcType=VARCHAR},
+    #{useremail,jdbcType=VARCHAR},
+    #{userpolitic,jdbcType=VARCHAR},
+   #{usereducation,jdbcType=VARCHAR},
+   #{userwishjob,jdbcType=VARCHAR}
+
+
   </insert>
   <insert id="insertSelective" parameterType="com.example.offer.model.UserInfo">
     insert into user_info
@@ -201,6 +214,7 @@
       userIcon = #{record.usericon,jdbcType=VARCHAR},
       userPhone = #{record.userphone,jdbcType=VARCHAR},
       userAge = #{record.userage,jdbcType=VARCHAR},
+
       userAddressCity = #{record.useraddresscity,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -239,5 +253,22 @@
       userAge = #{userage,jdbcType=VARCHAR},
       userAddressCity = #{useraddresscity,jdbcType=VARCHAR}
     where userId = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="UserInfoEdit" parameterType="com.example.offer.model.UserInfo">
+    update user_info
+    set userRealName = #{userrealname,jdbcType=VARCHAR},
+      userIcon = #{usericon,jdbcType=VARCHAR},
+      userPhone = #{userphone,jdbcType=VARCHAR},
+      userAge = #{userage,jdbcType=INTEGER},
+      userAddressCity = #{useraddresscity,jdbcType=VARCHAR},
+      userSex = #{usersex,jdbcType = VARCHAR},
+      userMajor = #{usermajor,jdbcType=VARCHAR},
+      userSchool = #{userschool,jdbcType=VARCHAR},
+      userPolitic = #{userpolitic,jdbcType=VARCHAR},
+      userEmail = #{useremail,jdbcType=VARCHAR},
+      userEducation=#{usereducation,jdbcType=VARCHAR},
+      userWishJob=#{userwishjob,jdbcType=VARCHAR}
+
+    where userName = #{username,jdbcType=VARCHAR}
   </update>
 </mapper>
