@@ -58,9 +58,6 @@
 <div id="wrap">
     <!-- 左侧菜单栏目块 -->
     <div class="leftMeun" id="leftMeun" th:fragment="leftMeun" >
-        <div id="logoDiv">
-            <p id="logoP"><img id="logo" alt="火电厂监控管理" src="images/logo.png"><span>火电厂监控管理</span></p>
-        </div>
         <div id="personInfor">
             <p id="userName"><h6 th:text="'欢迎您：' + ${session.userName}"></h6></p>
             <p>
@@ -72,9 +69,9 @@
                 <li class="current" data-id="department" ><a  th:href = "@{DepartmentList}"  >个人信息</a></li>
                 <li data-id="person"><a th:href = "@{ProjectExperienceList}"  >项目经历</a></li>
                 <li data-id="equipment"><a th:href = "@{EquipmentList}"   >教育情况</a></li>
-                <li data-id="material"><a th:href = "@{Department}"  >工作经历</a></li>
-                <li data-id="warehouse"><a th:href = "@{Department}"  >查看简历</a></li>
-                <li data-id="electric" onclick = "f('sub_menu_1')"  >发电统计
+              <!--  <li data-id="material"><a th:href = "@{Department}"  >工作经历</a></li>-->
+                <li data-id="warehouse"><a th:href = "@{CVList}"  >查看简历</a></li>
+                <!--<li data-id="electric" onclick = "f('sub_menu_1')"  >发电统计
                     <ul id = "sub_menu_1">
                         <li><a th:href = "@{Electric}">日发电量统计</a></li>
                         <li><a th:href="@{ElectricMonth}">月发电量统计</a></li>
@@ -82,7 +79,7 @@
                     </ul>
                 </li>
                 <li data-id="paper"><a th:href = "@{Department}"  >统计报表</a></li>
-                <li data-id="material"><a th:href = "@{Department}"  >设备监控</a></li>
+                <li data-id="material"><a th:href = "@{Department}"  >设备监控</a></li>-->
             </ul>
         </div>
     </div>

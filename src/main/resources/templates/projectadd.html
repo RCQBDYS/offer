@@ -28,6 +28,9 @@
                 sub_menu.style.display = "block";
 
         }
+        function ret() {
+            history.back(-1);
+        }
 
     </script>
     <style type="text/css">
@@ -125,7 +128,53 @@
             <div class="leftMeun" id="leftMeun" th:replace="index1::leftMeun" ></div>
             <!-- 右侧具体内容栏目 -->
             <div id="rightContent" th:fragment="rightContent" style="padding-left: 200px">
-                <div class="content">
+                <div class="wrapper">
+                    <div id="content">
+                        <div class="three-fourth ">
+                            <!-- title -->
+                            <div id="page-title">
+                                <span class="title">项目经验信息</span>
+                            </div>
+                            <!-- ENDS title -->
+
+                            <script type="text/javascript" src="/static/assets/js/form-validation.js"></script>
+                            <form id="contactForm" role="form" th:action="@{ProjectAddDo}" th:object="${projectExperience}" method="post">
+                                <fieldset>
+                                    <div>
+                                        <label>项目名称</label>
+                                        <input name="projectname"  type="text" th:field = "*{projectname}" class="form-poshytip" title="填入项目名称" />
+                                        <div style="color: red" th:if="${#fields.hasErrors('projectname')}" th:errors="*{projectname}"></div>
+                                    </div>
+                                    <div>
+                                        <label>角色</label>
+                                        <input name="projectrole"  type="text" th:field = "*{projectrole}" class="form-poshytip" title="填入担任角色" />
+                                    </div>
+                                    <div>
+                                        <label>工作内容</label>
+                                        <textarea name="projectcontent" th:field = "*{projectcontent}" class="form-poshytip" title="填入项目简介" ></textarea>
+                                    </div>
+                                    <div>
+                                        <label>开始日期</label>
+                                        <input  name="projectstartdate"  type="date" th:field = "*{projectstartdate}" class="form-poshytip" title="填入开始日期"/>
+                                        <div style="color: red"  th:if="${#fields.hasErrors('projectenddate')}" th:errors="*{projectenddate}"></div>
+                                    </div>
+                                    <div>
+                                        <label>结束日期</label>
+                                        <input name="projectenddate"  type = "date" th:field = "*{projectenddate}" class="form-poshytip" title="填入结束日期"/>
+                                        <div style="color: red" th:if="${#fields.hasErrors('projectenddate')}" th:errors="*{projectenddate}"></div>
+                                    </div>
+                                    <p><input type="submit" value="保存" name="submit" id="submit" />
+                                        <button type="button"  id = "window-close-button" onclick="ret()"> 返回 </button>
+                                    </p>
+                                </fieldset>
+                            </form>
+                            <!-- ENDS form -->
+
+                        </div>
+                        <div class="clear "></div>
+                    </div>
+                </div>
+                <!--<div class="content">
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
@@ -182,7 +231,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
             <!-- 滑块js -->
 
