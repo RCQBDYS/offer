@@ -1,5 +1,6 @@
 package com.example.offer.model;
 
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,12 +9,15 @@ public class ProjectExperience implements Serializable {
 
     private Integer userid;
 
+    @NotEmpty(message="项目名称不能为空")
     private String projectname;
 
     private String projectrole;
 
+    @NotEmpty(message="项目开始日期不能为空")
     private String projectstartdate;
 
+    @NotEmpty(message="项目结束日期不能为空")
     private String projectenddate;
 
     private String projectcontent;

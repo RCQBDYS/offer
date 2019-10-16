@@ -78,14 +78,14 @@
             <div class="wrapper">
                 <!-- Navigation -->
                 <ul id="nav" class="sf-menu">
-                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{MyCV}">用户模块<span class="subheader">Welcome</span></a></li>
-                    <li th:class="${currentUrl=='enterprise'?'current-menu-item':''}"><a>企业模块<span class="subheader">Enterprise module</span></a>
+                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{MyCV}" th:if="${session.userType == '管理员' } or ${session.userType == '应聘者' }">用户模块<span class="subheader">Welcome</span></a></li>
+                    <li th:class="${currentUrl=='enterprise'?'current-menu-item':''}"><a th:if="${session.userType == '管理员' }">企业模块<span class="subheader">Enterprise module</span></a>
                         <ul>
                             <li><a th:href="@{/enMessageList/} + ${session.userId}"><span>企业个人信息</span></a></li>
                             <li><a href="/postMessage.html"><span>招聘岗位的发布</span></a></li>
                         </ul>
                     </li>
-                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="blog.html">简历管理<span class="subheader">Read our posts</span></a></li>
+                    <li th:class="${currentUrl=='CV'?'current-menu-item':''}"><a th:href="@{MyCV}" th:if="${session.userName == 'root1' }">简历管理<span class="subheader">CV</span></a></li>
                     <li th:class="${currentUrl=='postSearch'?'current-menu-item':''}"><a href="/postSearch.html">职业搜索<span class="subheader">Career search</span></a></li>
                     <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="gallery.html">系统管理<span class="subheader">Featured work</span></a>
                         <ul>

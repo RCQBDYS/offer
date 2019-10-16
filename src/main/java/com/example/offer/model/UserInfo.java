@@ -29,6 +29,8 @@ public class UserInfo implements Serializable {
 
     private String usersex;
 
+    private String userWishJob;
+
     private static final long serialVersionUID = 1L;
 
     public String getUserschool() {
@@ -155,5 +157,13 @@ public class UserInfo implements Serializable {
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
+    }
+
+    public String getUserWishJob() {
+        return userWishJob;
+    }
+
+    public void setUserWishJob(String userWishJob) {
+        this.userWishJob = userWishJob;
     }
 }

@@ -251,7 +251,8 @@
       userMajor = #{usermajor,jdbcType=VARCHAR},
       userSchool = #{userschool,jdbcType=VARCHAR},
       userPolitic = #{userpolitic,jdbcType=VARCHAR},
-      userEmail = #{useremail,jdbcType=VARCHAR}
+      userEmail = #{useremail,jdbcType=VARCHAR},
+      userWishJob = #{userWishJob,jdbcType=VARCHAR}
     where userName = #{username,jdbcType=VARCHAR}
   </update>
 </mapper>

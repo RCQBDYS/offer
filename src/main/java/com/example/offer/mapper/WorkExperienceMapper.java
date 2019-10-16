@@ -30,4 +30,6 @@ public interface WorkExperienceMapper {
     int updateByPrimaryKeySelective(WorkExperience record);
 
     int updateByPrimaryKey(WorkExperience record);
+
+    List<WorkExperience> selectByUserName(String userName);
 }
