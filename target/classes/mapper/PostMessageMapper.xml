@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.offer.mapper.PostMessageMapper">
+  <resultMap id="BaseResultMap" type="com.example.offer.model.PostMessage">
+    <id column="postId" jdbcType="INTEGER" property="postId" />
+    <result column="postName" jdbcType="VARCHAR" property="postName" />
+    <result column="postSkill" jdbcType="VARCHAR" property="postSkill" />
+    <result column="postNum" jdbcType="INTEGER" property="postNum" />
+    <result column="postSalary" jdbcType="DOUBLE" property="postSalary" />
+    <result column="postSuccNum" jdbcType="INTEGER" property="postSuccNum" />
+    <result column="postIntroduce" jdbcType="VARCHAR" property="postIntroduce" />
+    <result column="postRequire" jdbcType="VARCHAR" property="postRequire" />
+    <result column="postAddress" jdbcType="VARCHAR" property="postAddress" />
+    <result column="postState" property="postState" />
+    <association property="user" javaType="User">
+      <id column="userId" property="userId"/>
+      <id column="userName" property="userName"/>
+    </association>
+    <association property="enterprise" javaType="EnterpriseMessage">
+      <id column="enterId" property="enterId"/>
+      <id column="enterName" property="enterName"/>
+    </association>
+  </resultMap>
+  <select id="listAll" resultMap="BaseResultMap">
+      SELECT *
+      FROM post_message
+      WHERE userId = #{user.userId}
+  </select>
+</mapper>

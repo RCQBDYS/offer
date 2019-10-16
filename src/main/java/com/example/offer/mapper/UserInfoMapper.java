@@ -1,5 +1,6 @@
 package com.example.offer.mapper;
 
+import com.example.offer.model.User;
 import com.example.offer.model.UserInfo;
 import com.example.offer.model.UserInfoExample;
 import java.util.List;
@@ -15,7 +16,8 @@ public interface UserInfoMapper {
     //通过用户名查找个人基本信息
     @Select("SELECT * FROM user_info WHERE userName = #{userName} ")
     UserInfo UserInfoList(@Param("userName") String userName);
-
+    @Select("SELECT userName FROM user_info WHERE userName = #{userName} ")
+    String check(@Param("userName") String userName);
     //修改个人基本信息
     int UserInfoEdit( UserInfo userInf);
 

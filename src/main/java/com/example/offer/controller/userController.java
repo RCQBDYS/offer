@@ -69,9 +69,10 @@ System.out.println(userType);
             return "login";
         }
         else {
-            httpSession.setAttribute("userName", userName);
+
+            httpSession.setAttribute("userName",result.getUserName() );
             httpSession.setAttribute("userType",result.getUserType() );
-            return "index";
+            return "redirect:/UserInfoAdd";
         }
     }
 //    处理注册信息
@@ -121,7 +122,6 @@ System.out.println(userType);
 
             }
         }
-       // return "login";
             else {
             String ur="register.html";
             out.print("<script>alert('用户名重复');window.location.href='"
@@ -129,9 +129,16 @@ System.out.println(userType);
             out.flush();
                 return "register";
             }
+
     }
 
+    @RequestMapping("/LoginOut")
+    public String loginOut(HttpSession session) {
+        session.removeAttribute("userName");
+        session.removeAttribute("userType");
+        return "login";
 
+    }
 
 }
 

@@ -2,6 +2,7 @@ package com.example.offer.service.impl;
 
 
 import com.example.offer.mapper.UserInfoMapper;
+import com.example.offer.model.User;
 import com.example.offer.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,11 @@ public class userInfoServiceImpl {
         System.out.println(userInfo.getUserage());
         return userInfoMapper.UserInfoEdit(userInfo);
     }
+    public String check(String userName) {
+        return  userInfoMapper.check(userName);
+    }
+    public int Insert(UserInfo record) {
 
+        return userInfoMapper.insert(record);
+    }
 }
