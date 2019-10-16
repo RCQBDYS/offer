@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.offer.mapper.WorkExperienceMapper">
+  <resultMap id="BaseResultMap" type="com.example.offer.model.WorkExperience">
+    <id column="workId" jdbcType="INTEGER" property="workid" />
+    <result column="workCompany" jdbcType="VARCHAR" property="workcompany" />
+    <result column="workJob" jdbcType="VARCHAR" property="workjob" />
+    <result column="workStartDate" jdbcType="DATE" property="workstartdate" />
+    <result column="workEndDate" jdbcType="DATE" property="workenddate" />
+    <result column="workContent" jdbcType="VARCHAR" property="workcontent" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    workId, workCompany, workJob, workStartDate, workEndDate, workContent, userName
+  </sql>
+  <select id="selectByExample" parameterType="com.example.offer.model.WorkExperienceExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from work_experience
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from work_experience
+  where workId = #{workid,jdbcType=INTEGER}
+</select>
+
+  <select id="selectByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from work_experience
+    where userName = #{username,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from work_experience
+    where workId = #{workid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.offer.model.WorkExperienceExample">
+    delete from work_experience
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <!-- 添加工作经验-->
+  <insert id="insert" parameterType="com.example.offer.model.WorkExperience">
+    insert into work_experience ( workCompany, workJob,
+      workStartDate, workEndDate, workContent, 
+      userName)
+    values ( #{workcompany,jdbcType=VARCHAR}, #{workjob,jdbcType=VARCHAR},
+      #{workstartdate,jdbcType=DATE}, #{workenddate,jdbcType=DATE}, #{workcontent,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.offer.model.WorkExperience">
+    insert into work_experience
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="workid != null">
+        workId,
+      </if>
+      <if test="workcompany != null">
+        workCompany,
+      </if>
+      <if test="workjob != null">
+        workJob,
+      </if>
+      <if test="workstartdate != null">
+        workStartDate,
+      </if>
+      <if test="workenddate != null">
+        workEndDate,
+      </if>
+      <if test="workcontent != null">
+        workContent,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="workid != null">
+        #{workid,jdbcType=INTEGER},
+      </if>
+      <if test="workcompany != null">
+        #{workcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="workjob != null">
+        #{workjob,jdbcType=VARCHAR},
+      </if>
+      <if test="workstartdate != null">
+        #{workstartdate,jdbcType=DATE},
+      </if>
+      <if test="workenddate != null">
+        #{workenddate,jdbcType=DATE},
+      </if>
+      <if test="workcontent != null">
+        #{workcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.offer.model.WorkExperienceExample" resultType="java.lang.Long">
+    select count(*) from work_experience
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update work_experience
+    <set>
+      <if test="record.workid != null">
+        workId = #{record.workid,jdbcType=INTEGER},
+      </if>
+      <if test="record.workcompany != null">
+        workCompany = #{record.workcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workjob != null">
+        workJob = #{record.workjob,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workstartdate != null">
+        workStartDate = #{record.workstartdate,jdbcType=DATE},
+      </if>
+      <if test="record.workenddate != null">
+        workEndDate = #{record.workenddate,jdbcType=DATE},
+      </if>
+      <if test="record.workcontent != null">
+        workContent = #{record.workcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userid != null">
+        userId = #{record.userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update work_experience
+    set workId = #{record.workid,jdbcType=INTEGER},
+      workCompany = #{record.workcompany,jdbcType=VARCHAR},
+      workJob = #{record.workjob,jdbcType=VARCHAR},
+      workStartDate = #{record.workstartdate,jdbcType=DATE},
+      workEndDate = #{record.workenddate,jdbcType=DATE},
+      workContent = #{record.workcontent,jdbcType=VARCHAR},
+      userId = #{record.userid,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.offer.model.WorkExperience">
+    update work_experience
+    <set>
+      <if test="workcompany != null">
+        workCompany = #{workcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="workjob != null">
+        workJob = #{workjob,jdbcType=VARCHAR},
+      </if>
+      <if test="workstartdate != null">
+        workStartDate = #{workstartdate,jdbcType=DATE},
+      </if>
+      <if test="workenddate != null">
+        workEndDate = #{workenddate,jdbcType=DATE},
+      </if>
+      <if test="workcontent != null">
+        workContent = #{workcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where workId = #{workid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.offer.model.WorkExperience">
+    update work_experience
+    set workCompany = #{workcompany,jdbcType=VARCHAR},
+      workJob = #{workjob,jdbcType=VARCHAR},
+      workStartDate = #{workstartdate,jdbcType=DATE},
+      workEndDate = #{workenddate,jdbcType=DATE},
+      workContent = #{workcontent,jdbcType=VARCHAR}
+    where workId = #{workid,jdbcType=INTEGER}
+  </update>
+</mapper>

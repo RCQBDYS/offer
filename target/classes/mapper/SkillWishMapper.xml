@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.offer.mapper.SkillWishMapper">
+  <resultMap id="BaseResultMap" type="com.example.offer.model.SkillWish">
+    <id column="swId" jdbcType="INTEGER" property="swid" />
+    <result column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="swJob" jdbcType="VARCHAR" property="swjob" />
+    <result column="swCity" jdbcType="VARCHAR" property="swcity" />
+    <result column="swSalary" jdbcType="DOUBLE" property="swsalary" />
+    <result column="swSkill" jdbcType="VARCHAR" property="swskill" />
+    <result column="swCareer" jdbcType="VARCHAR" property="swcareer" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    swId, userId, swJob, swCity, swSalary, swSkill, swCareer
+  </sql>
+  <select id="selectByExample" parameterType="com.example.offer.model.SkillWishExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from skill_wish
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from skill_wish
+    where swId = #{swid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from skill_wish
+    where swId = #{swid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.offer.model.SkillWishExample">
+    delete from skill_wish
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.offer.model.SkillWish">
+    insert into skill_wish (swId, userId, swJob, 
+      swCity, swSalary, swSkill, 
+      swCareer)
+    values (#{swid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{swjob,jdbcType=VARCHAR}, 
+      #{swcity,jdbcType=VARCHAR}, #{swsalary,jdbcType=DOUBLE}, #{swskill,jdbcType=VARCHAR}, 
+      #{swcareer,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.offer.model.SkillWish">
+    insert into skill_wish
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="swid != null">
+        swId,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="swjob != null">
+        swJob,
+      </if>
+      <if test="swcity != null">
+        swCity,
+      </if>
+      <if test="swsalary != null">
+        swSalary,
+      </if>
+      <if test="swskill != null">
+        swSkill,
+      </if>
+      <if test="swcareer != null">
+        swCareer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="swid != null">
+        #{swid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="swjob != null">
+        #{swjob,jdbcType=VARCHAR},
+      </if>
+      <if test="swcity != null">
+        #{swcity,jdbcType=VARCHAR},
+      </if>
+      <if test="swsalary != null">
+        #{swsalary,jdbcType=DOUBLE},
+      </if>
+      <if test="swskill != null">
+        #{swskill,jdbcType=VARCHAR},
+      </if>
+      <if test="swcareer != null">
+        #{swcareer,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.offer.model.SkillWishExample" resultType="java.lang.Long">
+    select count(*) from skill_wish
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update skill_wish
+    <set>
+      <if test="record.swid != null">
+        swId = #{record.swid,jdbcType=INTEGER},
+      </if>
+      <if test="record.userid != null">
+        userId = #{record.userid,jdbcType=INTEGER},
+      </if>
+      <if test="record.swjob != null">
+        swJob = #{record.swjob,jdbcType=VARCHAR},
+      </if>
+      <if test="record.swcity != null">
+        swCity = #{record.swcity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.swsalary != null">
+        swSalary = #{record.swsalary,jdbcType=DOUBLE},
+      </if>
+      <if test="record.swskill != null">
+        swSkill = #{record.swskill,jdbcType=VARCHAR},
+      </if>
+      <if test="record.swcareer != null">
+        swCareer = #{record.swcareer,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update skill_wish
+    set swId = #{record.swid,jdbcType=INTEGER},
+      userId = #{record.userid,jdbcType=INTEGER},
+      swJob = #{record.swjob,jdbcType=VARCHAR},
+      swCity = #{record.swcity,jdbcType=VARCHAR},
+      swSalary = #{record.swsalary,jdbcType=DOUBLE},
+      swSkill = #{record.swskill,jdbcType=VARCHAR},
+      swCareer = #{record.swcareer,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.offer.model.SkillWish">
+    update skill_wish
+    <set>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="swjob != null">
+        swJob = #{swjob,jdbcType=VARCHAR},
+      </if>
+      <if test="swcity != null">
+        swCity = #{swcity,jdbcType=VARCHAR},
+      </if>
+      <if test="swsalary != null">
+        swSalary = #{swsalary,jdbcType=DOUBLE},
+      </if>
+      <if test="swskill != null">
+        swSkill = #{swskill,jdbcType=VARCHAR},
+      </if>
+      <if test="swcareer != null">
+        swCareer = #{swcareer,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where swId = #{swid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.offer.model.SkillWish">
+    update skill_wish
+    set userId = #{userid,jdbcType=INTEGER},
+      swJob = #{swjob,jdbcType=VARCHAR},
+      swCity = #{swcity,jdbcType=VARCHAR},
+      swSalary = #{swsalary,jdbcType=DOUBLE},
+      swSkill = #{swskill,jdbcType=VARCHAR},
+      swCareer = #{swcareer,jdbcType=VARCHAR}
+    where swId = #{swid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+/*
+ * 162012班
+ * 火电厂监控管理系统
+ * @author：16201217
+ * date：2019-6-15
+ * 火电厂监控管理主界面
+ */
+  -->
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content=" ">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>火电厂监控管理系统</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function f(str){
+            var sub_menu = document.getElementById(str);
+            var dis_v = sub_menu.style.display;
+
+            if(dis_v == "block")
+                sub_menu.style.display = "none";
+            else
+                sub_menu.style.display = "block";
+
+        }
+
+    </script>
+    <style type="text/css">
+        #sub_menu_1,#sub_menu_2{
+            display: none;
+        }
+        ul li:hover{
+            cursor: pointer;
+        }
+    </style>
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link href="assets/css/CV/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/CV/common.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/CV/slide.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/CV/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/CV/flat-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/CV/jquery.nouislider.css">
+    <link rel="stylesheet" href="assets/css/CV/style.css">
+</head>
+<body>
+<div id="wrap">
+    <!-- 左侧菜单栏目块 -->
+    <div class="leftMeun" id="leftMeun" th:fragment="leftMeun" >
+        <div id="personInfor">
+            <p id="userName"><h6 th:text="'欢迎您：' + ${session.userName}"></h6></p>
+            <p>
+                <a th:href = "@{LoginOut}" onclick="return confirm('确定退出登录?')">退出登录</a>
+            </p>
+        </div>
+        <div class = "meun-item">
+            <ul class="menu-item">
+                <li class="current" data-id="department" ><a  th:href = "@{DepartmentList}"  >个人信息</a></li>
+                <li data-id="person"><a th:href = "@{ProjectExperienceList}"  >项目经历</a></li>
+                <li data-id="equipment"><a th:href = "@{EquipmentList}"   >教育情况</a></li>
+              <!--  <li data-id="material"><a th:href = "@{Department}"  >工作经历</a></li>-->
+                <li data-id="warehouse"><a th:href = "@{CVList}"  >查看简历</a></li>
+                <!--<li data-id="electric" onclick = "f('sub_menu_1')"  >发电统计
+                    <ul id = "sub_menu_1">
+                        <li><a th:href = "@{Electric}">日发电量统计</a></li>
+                        <li><a th:href="@{ElectricMonth}">月发电量统计</a></li>
+                        <li><a th:href="@{ElectricYear}">年发电量统计</a></li>
+                    </ul>
+                </li>
+                <li data-id="paper"><a th:href = "@{Department}"  >统计报表</a></li>
+                <li data-id="material"><a th:href = "@{Department}"  >设备监控</a></li>-->
+            </ul>
+        </div>
+    </div>
+    <!-- 右侧具体内容栏目 -->
+    <div id="rightContent" th:fragment="rightContent" style="padding-left: 200px">
+        <h2>欢迎登录火电厂监控管理系统</h2>
+    </div>
+    <!-- 滑块js -->
+
+    <script src="js/jquery.nouislider.js"></script>
+
+
+</div>
+</body>
+
+</html>
