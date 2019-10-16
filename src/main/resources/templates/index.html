@@ -56,7 +56,7 @@
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-       <!--CUSTOM BASIC STYLES-->
+    <!--CUSTOM BASIC STYLES-->
     <link href="assets/css/basic.css" rel="stylesheet" />
     <!--CUSTOM MAIN STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
@@ -78,16 +78,16 @@
             <div class="wrapper">
                 <!-- Navigation -->
                 <ul id="nav" class="sf-menu">
-                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{MyCV}">用户模块<span class="subheader">Welcome</span></a></li>
-                    <li th:class="${currentUrl=='enterprise'?'current-menu-item':''}"><a>企业模块<span class="subheader">Enterprise module</span></a>
+                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{MyCV}" th:if="${session.userType == '应聘者' }" >用户模块<span class="subheader">Welcome</span></a></li>
+                    <li th:class="${currentUrl=='enterprise'?'current-menu-item':''}"><a th:if="${session.userType== '公司'}">企业模块<span class="subheader">Enterprise module</span></a>
                         <ul>
-                            <li><a th:href="@{/enMessageListTable/}+${session.userId}"><span>企业个人信息</span></a></li>
-                            <li><a th:href="@{/postMessage/}+${session.userId}"><span>招聘岗位的发布</span></a></li>
+                            <li><a th:href="@{/enMessageList/} + ${session.userId}" th:if="${session.userType== '公司'}"><span>企业个人信息</span></a></li>
+                            <li><a th:href="@{postMessage.html}" th:if="${session.userType== '公司'}"><span>招聘岗位的发布</span></a></li>
                         </ul>
                     </li>
-                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="blog.html">简历管理<span class="subheader">Read our posts</span></a></li>
-                    <li th:class="${currentUrl=='postSearch'?'current-menu-item':''}"><a href="/postSearch.html">职业搜索<span class="subheader">Career search</span></a></li>
-                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="gallery.html">系统管理<span class="subheader">Featured work</span></a>
+                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{blog.html}" th:if="${session.userType== '应聘者'}">简历管理<span class="subheader">Read our posts</span></a></li>
+                    <li th:class="${currentUrl=='postSearch'?'current-menu-item':''}"><a th:href="@{postSearch.html}"th:if="${session.userType== '应聘者'}">职业搜索<span class="subheader">Career search</span></a></li>
+                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a  th:href = "@{gallery.html}" th:if="${session.userType eq '管理员'}">系统管理<span class="subheader">Featured work</span></a>
                         <ul>
                             <li><a href="gallery.html"><span> Four columns</span></a></li>
                             <li><a href="gallery-3.html"><span> Three columns </span></a></li>
@@ -95,8 +95,8 @@
                             <li><a href="video-gallery.html"><span> Video gallery </span></a></li>
                         </ul>
                     </li>
-                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="contact.html">职场资讯<span class="subheader">Get in touch</span></a></li>
-                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="contact.html">我的面试<span class="subheader">Get in touch</span></a></li>
+                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{contact.html}"th:if="${session.userType== '公司'} or ${session.userType== '应聘者'}">职场资讯<span class="subheader">Get in touch</span></a></li>
+                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="@{contact.html}" th:if="${session.userType== '应聘者'}">我的面试<span class="subheader">Get in touch</span></a></li>
                 </ul>
                 <!-- Navigation -->
             </div>
