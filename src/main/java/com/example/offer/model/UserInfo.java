@@ -29,15 +29,16 @@ public class UserInfo implements Serializable {
 
     private String usersex;
 
-    public String getUserwishjob() {
-        return userwishjob;
+    public String getUserWishJob() {
+        return userWishJob;
     }
 
-    public void setUserwishjob(String userwishjob) {
-        this.userwishjob = userwishjob;
+    public void setUserWishJob(String userWishJob) {
+        this.userWishJob = userWishJob;
     }
 
-    private String userwishjob;
+    private String userWishJob;
+
     private static final long serialVersionUID = 1L;
 
     public String getUserschool() {

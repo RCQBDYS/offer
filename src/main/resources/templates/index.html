@@ -87,7 +87,7 @@
                         </ul>
                     </li>
 
-                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{MyCV}}" th:if="${session.userType== '应聘者'}">简历管理<span class="subheader">Read our posts</span></a></li>
+                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{MyCV}" th:if="${session.userType== '应聘者'}">简历管理<span class="subheader">Read our posts</span></a></li>
                     <li th:class="${currentUrl=='postSearch'?'current-menu-item':''}"><a th:href="@{postSearch.html}"th:if="${session.userType== '应聘者'}">职业搜索<span class="subheader">Career search</span></a></li>
                     <li th:class="${currentUrl==''?'current-menu-item':''}"><a  th:href = "@{gallery.html}" th:if="${session.userType eq '管理员'}">系统管理<span class="subheader">Featured work</span></a>
 
