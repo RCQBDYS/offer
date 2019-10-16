@@ -10,6 +10,16 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface PostMessageMapper {
 
-    List<PostMessage> listAll();
+    List<PostMessage> listAll(Long userId);
+
+    List<PostMessage> queryByKeyword(@Param(value="keyword") String keyword,Long userId);
+
+    PostMessage oneMessage(Long postId);
+
+    int update(PostMessage postMessage);
+
+    int delete(Long postId);
+
+    int  save(PostMessage postMessage);
 
 }
