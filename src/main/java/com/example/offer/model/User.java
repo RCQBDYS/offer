@@ -17,6 +17,7 @@ public class User implements Serializable {
 
     private String userPassword;
 
+
     public int getUserId() {
         return userId;
     }
@@ -25,7 +26,7 @@ public class User implements Serializable {
         this.userId = userId;
     }
 
-    private int userId;
+    private  int  userId;
 
     public String getUserType() {
         return userType;
