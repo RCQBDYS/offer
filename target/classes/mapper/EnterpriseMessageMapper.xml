@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.offer.mapper.EnterpriseMessageMapper">
+  <resultMap id="BaseResultMap" type="com.example.offer.model.EnterpriseMessage">
+    <id column="enterId" jdbcType="INTEGER" property="enterId" />
+    <result column="enterName" jdbcType="VARCHAR" property="enterName" />
+    <result column="enterIntroduce" jdbcType="VARCHAR" property="enterIntroduce" />
+    <result column="enterSize" jdbcType="INTEGER" property="enterSize" />
+    <result column="enterWelfare" jdbcType="VARCHAR" property="enterWelfare" />
+    <result column="enterAddress" property="enterAddress"/>
+    <result column="enterProduct" property="enterProduct"/>
+    <association property="userId" javaType="User" column="userId">
+    </association>
+  </resultMap>
+
+  <select id="selectUserId" resultMap="BaseResultMap">
+        SELECT enterId,enterName,enterSize,enterIntroduce,enterWelfare,
+        enterAddress,enterProduct,user.userId as userId,userName
+        FROM enterprise_message,user
+        WHERE enterprise_message.userId = #{userId}
+    </select>
+
+  <update id="update" parameterType="com.example.offer.model.EnterpriseMessage">
+        UPDATE enterprise_message SET enterName=#{enterName},enterProduct=#{enterProduct},
+        enterAddress=#{enterAddress},enterWelfare=#{enterWelfare},enterSize=#{enterSize}
+        WHERE enterId=#{enterId}
+  </update>
+
+
+</mapper>
