@@ -86,10 +86,17 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+  select
+  <include refid="Base_Column_List" />
+  from work_experience
+  where workId = #{workid,jdbcType=INTEGER}
+</select>
+
+  <select id="selectByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
     <include refid="Base_Column_List" />
     from work_experience
-    where workId = #{workid,jdbcType=INTEGER}
+    where userName = #{username,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from work_experience
@@ -103,10 +110,10 @@
   </delete>
   <!-- 添加工作经验-->
   <insert id="insert" parameterType="com.example.offer.model.WorkExperience">
-    insert into work_experience (workId, workCompany, workJob, 
+    insert into work_experience ( workCompany, workJob,
       workStartDate, workEndDate, workContent, 
       userName)
-    values (#{workid,jdbcType=INTEGER}, #{workcompany,jdbcType=VARCHAR}, #{workjob,jdbcType=VARCHAR}, 
+    values ( #{workcompany,jdbcType=VARCHAR}, #{workjob,jdbcType=VARCHAR},
       #{workstartdate,jdbcType=DATE}, #{workenddate,jdbcType=DATE}, #{workcontent,jdbcType=VARCHAR}, 
       #{username,jdbcType=VARCHAR})
   </insert>
@@ -237,8 +244,7 @@
       workJob = #{workjob,jdbcType=VARCHAR},
       workStartDate = #{workstartdate,jdbcType=DATE},
       workEndDate = #{workenddate,jdbcType=DATE},
-      workContent = #{workcontent,jdbcType=VARCHAR},
-      userName = #{userName,jdbcType=VARCHAR}
+      workContent = #{workcontent,jdbcType=VARCHAR}
     where workId = #{workid,jdbcType=INTEGER}
   </update>
 </mapper>

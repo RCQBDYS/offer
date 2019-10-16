@@ -26,8 +26,12 @@
                 sub_menu.style.display = "none";
             else
                 sub_menu.style.display = "block";
-
         }
+
+
+            function ret() {
+                history.back(-1);
+            }
 
     </script>
     <style type="text/css">
@@ -153,54 +157,53 @@
             </div>
             <!-- 右侧具体内容栏目 -->
             <div id="rightContent" th:fragment="rightContent" style="padding-left: 200px">
-                <form action="ExperiseEdit" method="post" enctype="multipart/form-data">
-                    <table border=1; cellpadding=12; cellspacing=0; align=center >
-                        <tr align=center>
-                            <td colspan="6">项目经历</td>
-                        </tr>
-                        <tr th:each="projectexperise,projectexperiStat :${list.getProjectExperiencesList()}">
-                            <td th:text="${projectexperise.getProjectid()}" style="display:none"></td>
-                            <td th:text="${projectexperise.getProjectname()}"></td>
-                            <td th:text="${projectexperise.getProjectrole()}"></td>
-                            <td th:text="${projectexperise.getProjectstartdate()+'至'+projectexperise.getProjectenddate()}"></td>
-                            <!-- <td th:text="${projectexperise.getProjectenddate()}"></td>-->
-                            <td th:text="${projectexperise.getProjectcontent()}"></td>
-                            <td><a class="btn btn-default" th:href="@{ProjectExperienceEdit(id=${projectexperise.getProjectid() })}">修改</a>
-                                <a class="btn btn-default btn-lg active" th:href="@{ProjectExperienceDelete(id=${projectexperise.getProjectid()})}" onclick="return confirm('确定将此记录删除?')" >删除</a>
-                            </td>
-                        </tr>
-                        <tr align=center>
-                            <td colspan="6" style="height:100px"><a th:href="@{ProjectAdd}" >添加</a></td>
-                        </tr>
-                        <tr align=center>
-                            <td colspan="6">教育经历</td>
-                        </tr>
-                        <tr th:each="workexperience,workexperienceStat :${list.getWorkExperiencesList()}">
-                            <td th:text="${workexperience.getWorkid()}" style="display:none"></td>
-                            <td th:text="${workexperience.getWorkcompany()}"></td>
-                            <td colspan="2" th:text="${workexperience.getWorkcontent()}"></td>
-                            <td th:text="${workexperience.getWorkstartdate()+'至'+workexperience.getWorkenddate()}"></td>
-                            <!-- <td th:text="${projectexperise.getProjectenddate()}"></td>-->
-                            <!--<td th:text="${projectexperise.getProjectcontent()}"></td>-->
-                            <td><a class="btn btn-default" th:href="@{WorkEdit(workid=${workexperience.getWorkid() })}">修改</a>
-                                <a class="btn btn-default btn-lg active" th:href="@{WorkDelete(workid=${workexperience.getWorkid()})}" onclick="return confirm('确定将此记录删除?')" >删除</a>
-                            </td>
-                        </tr>
-                        <tr align=center>
-                            <td colspan="6" style="height:100px"><a th:href="@{WorkAdd}" >添加</a></td>
-                        </tr>
+                <div class="wrapper">
+                    <div id="content">
+                        <div class="three-fourth ">
+                            <!-- title -->
+                            <div id="page-title">
+                                <span class="title">工作经验信息</span>
+                            </div>
+                            <!-- ENDS title -->
 
+                            <script type="text/javascript" src="/static/assets/js/form-validation.js"></script>
+                            <form id="contactForm" role="form" th:action="@{WorkEditDo}" method="post">
+                                <fieldset>
+                                    <div>
+                                        <label>公司名称</label>
+                                        <input name="workcompany" th:value="${workExperiece.getWorkcompany()}" type="text" class="form-poshytip" title="填入公司全称" />
+                                    </div>
+                                    <div>
+                                        <label>工作岗位</label>
+                                        <input name="workjob" th:value="${workExperiece.getWorkjob()}" type="text" class="form-poshytip" title="填入工作岗位" />
+                                    </div>
+                                    <div>
+                                        <label>工作内容</label>
+                                        <textarea name="workcontent" th:text="${workExperiece.getWorkcontent()}" class="form-poshytip" title="填入工作内容" ></textarea>
+                                    </div>
+                                    <div>
+                                        <label>入职日期</label>
+                                        <input  name="workstartdate" th:value="${workExperiece.getWorkstartdate()}" type="date" class="form-poshytip" title="填入入职日期"/>
+                                    </div>
+                                    <div>
+                                        <label>离职日期</label>
+                                        <input name="workenddate" th:value="${workExperiece.getWorkenddate()}" type = "date" class="form-poshytip" title="填入离职日期"/>
+                                    </div>
+                                    <div>
+                                        <input type="hidden" name = workid th:value="${workExperiece.getWorkid()}"/>
+                                    </div>
 
+                                    <p><input type="submit" value="保存" name="submit" id="submit" />
+                                        <button type="button"  id = "window-close-button" onclick="ret()"> 返回 </button>
+                                    </p>
+                                </fieldset>
+                            </form>
+                            <!-- ENDS form -->
 
-
-
-
-                        <!--<tr align=center>
-                            <td>电子信箱:</td><td colspan="4" contentEditable="true"></td>
-                        </tr>-->
-                        <tr align=center><td colspan="6" ><button type="submit" class="btn btn-primary"> 保存 </button></td></tr>
-                    </table>
-                </form>
+                        </div>
+                        <div class="clear "></div>
+                    </div>
+                </div>
             </div>
             <!-- 滑块js -->
 

@@ -116,7 +116,7 @@
 
 <div id = "daohang">
     <!-- Menu -->
-    <div id="menu" th:replace = "index::TopMenu"></div>
+    <div id="menu" th:replace = "~{index::TopMenu(currentUrl='CV')}"></div>
     <!-- ENDS Menu -->
 
     <div id="main" th:fragment="LowerContent">
@@ -154,40 +154,40 @@
             <!-- 右侧具体内容栏目 -->
             <div id="rightContent" th:fragment="rightContent" style="padding-left: 200px">
                 <form action="UserInfoEdit" method="post" enctype="multipart/form-data">
-                <table border=1; cellpadding=12; cellspacing=0; align=center th:each="userInfo,userInfoStat:${userInfo}">
-                    <tr align=center>
-                        <td colspan="5">基本信息</td>
-                    </tr>
-                    <tr align=center>
-                        <td>姓名:</td><td  ><input type = "text" name = "userrealname" th:value="${userInfo.getUserrealname()}"></td>
-                        <td>性别:</td><td ><input type = "text" name = "usersex" th:value="${userInfo.getUsersex()}"></td>
-                        <td rowspan="5"  ><input type="file" name = "icon" accept="image/*"></td>
-                    </tr>
-                    <tr align=center>
-                        <td>毕业院校:</td><td ><input type = "text" name = "userschool" th:value="${userInfo.getUserschool()}" ></td>
-                        <!--<td>年龄:</td><td name = "userage" th:text = "${userInfo.getUserage()}" contentEditable="true"></td>-->
-                        <td>年龄:</td><td ><input type = "text" name = "userage" th:value="${userInfo.getUserage()}"></td>
-                    </tr>
-                    <tr align=center>
-                        <td>最高学历:</td><td><input type = "text" name = "usereducation" th:value="${userInfo.getUsereducation()}" ></td>
-                        <td>政治面貌:</td><td><input type = "text" name = "userpolitic" th:value="${userInfo.getUserpolitic()}" ></td>
-                    </tr>
-                    <tr align=center>
-                        <td>专业:</td><td ><input type = "text" name = "usermajor" th:value="${userInfo.getUsermajor()}" ></td>
-                        <td>出生年月:</td><td contentEditable="true" ></td>
-                    </tr>
-                    <tr align=center>
-                        <td>电子信箱:</td><td ><input type = "text" name = "useremail" th:value="${userInfo.getUseremail()}" ></td>
-                        <td>手机号码:</td><td ><input type = "text" name = "userphone" th:value="${userInfo.getUserphone()}" ></td>
-                    </tr>
-                    <tr align=center>
-                        <td>籍贯:</td><td colspan="4" ><input type = "text" name = "useraddresscity" th:value="${userInfo.getUseraddresscity()}" ></td>
-                    </tr>
-                    <!--<tr align=center>
-                        <td>电子信箱:</td><td colspan="4" contentEditable="true"></td>
-                    </tr>-->
-                    <tr align=center><td colspan="5" ><button type="submit" class="btn btn-primary"> 保存 </button></td></tr>
-                </table>
+                    <table border=1; cellpadding=12; cellspacing=0; align=center th:each="userInfo,userInfoStat:${userInfo}">
+                        <tr align=center>
+                            <td colspan="5">基本信息</td>
+                        </tr>
+                        <tr align=center>
+                            <td>姓名:</td><td  ><input type = "text" name = "userrealname" th:value="${userInfo.getUserrealname()}"></td>
+                            <td>性别:</td><td ><input type = "text" name = "usersex" th:value="${userInfo.getUsersex()}"></td>
+                            <td rowspan="5"  ><input type="file" name = "icon" accept="image/*" ></td>
+                        </tr>
+                        <tr align=center>
+                            <td>毕业院校:</td><td ><input type = "text" name = "userschool" th:value="${userInfo.getUserschool()}" ></td>
+                            <!--<td>年龄:</td><td name = "userage" th:text = "${userInfo.getUserage()}" contentEditable="true"></td>-->
+                            <td>年龄:</td><td ><input type = "text" name = "userage" th:value="${userInfo.getUserage()}"></td>
+                        </tr>
+                        <tr align=center>
+                            <td>最高学历:</td><td><input type = "text" name = "usereducation" th:value="${userInfo.getUsereducation()}" ></td>
+                            <td>政治面貌:</td><td><input type = "text" name = "userpolitic" th:value="${userInfo.getUserpolitic()}" ></td>
+                        </tr>
+                        <tr align=center>
+                            <td>专业:</td><td ><input type = "text" name = "usermajor" th:value="${userInfo.getUsermajor()}" ></td>
+                            <td>应聘职位:</td><td><input type = "text" name = "userWishJob" th:value="${userInfo.getUserWishJob()}" ></td>
+                        </tr>
+                        <tr align=center>
+                            <td>电子信箱:</td><td ><input type = "text" name = "useremail" th:value="${userInfo.getUseremail()}" ></td>
+                            <td>手机号码:</td><td ><input type = "text" name = "userphone" th:value="${userInfo.getUserphone()}" ></td>
+                        </tr>
+                        <tr align=center>
+                            <td>籍贯:</td><td colspan="4" ><input type = "text" name = "useraddresscity" th:value="${userInfo.getUseraddresscity()}" ></td>
+                        </tr>
+                        <!--<tr align=center>
+                            <td>电子信箱:</td><td colspan="4" contentEditable="true"></td>
+                        </tr>-->
+                        <tr align=center><td colspan="5" ><button type="submit" class="btn btn-primary"> 保存 </button></td></tr>
+                    </table>
                 </form>
             </div>
             <!-- 滑块js -->
