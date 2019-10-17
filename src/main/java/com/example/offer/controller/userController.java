@@ -72,6 +72,7 @@ System.out.println(userType);
 
             httpSession.setAttribute("userName",result.getUserName() );
             httpSession.setAttribute("userType",result.getUserType() );
+            httpSession.setAttribute("userId",result.getUserId());
             return "redirect:/UserInfoAdd";
         }
     }

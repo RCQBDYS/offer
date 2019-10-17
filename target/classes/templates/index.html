@@ -83,7 +83,7 @@
 
                         <ul>
                             <li><a th:href="@{/enMessageList/} + ${session.userId}" th:if="${session.userType== '公司'}"><span>企业个人信息</span></a></li>
-                            <li><a th:href="@{postMessage.html}" th:if="${session.userType== '公司'}"><span>招聘岗位的发布</span></a></li>
+                            <li><a th:href="@{/postMessage/}+${session.userId}" th:if="${session.userType== '公司'}"><span>招聘岗位的发布</span></a></li>
                         </ul>
                     </li>
 
