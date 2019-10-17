@@ -3,12 +3,12 @@
 <!--
 
 @author:wangshen
-@date: 2019/10/1111:28
-主要功能说明:企业招聘信息的添加
+@date: 2019/10/1111:18
+主要功能说明:企业招聘信息页面
 -->
 <head>
     <meta charset="utf-8">
-    <title>岗位信息添加</title>
+    <title>岗位信息发布</title>
 
     <!--bootstrap-->
     <link rel="stylesheet" href="/assets/css/bootstrap.css">
@@ -73,53 +73,39 @@
 </head>
 <body>
 <!--topMenu-->
-<div id="menu" th:replace = "~{index::TopMenu(currentUrl='enterprise')}"></div>
+<div id="menu" th:replace = "~{index::TopMenu(currentUrl='workInfo')}"></div>
 <!--content-->
 <div id="main" th:fragment="LowerContent">
     <div class="wrapper">
         <div id="content">
 
             <div class="line-divider">
-                <h4>添加招聘岗位信息</h4>
-            </div>
-            <div>
-                <form id="contactForm"  method="post" th:action="@{/postMessageSave}">
-                    <fieldset>
-                        <div >
-                            <label>岗位名称</label>
-                            <input name="postName" type="text" class="form-poshytip"/>
-                        </div>
-                        <div class="form-group">
-                            <label>岗位薪资</label>
-                            <input name="postSalary" `type="text" class="form-poshytip"/>
-                        </div>
-                        <div>
-                            <label>岗位技能</label>
-                            <input name="postSkill" type="text" class="form-poshytip"/>
-                        </div>
-                        <div>
-                            <label>岗位招收人数</label>
-                            <input name="postNum" type="text" class="form-poshytip"/>
-                        </div>
-                        <div>
-                            <label>岗位介绍</label>
-                            <textarea name="postIntroduce" type="text" class="form-poshytip"></textarea>
-                        </div>
-                        <div>
-                            <label>岗位要求</label>
-                            <textarea name="postRequire" class="form-poshytip" ></textarea>
-                        </div>
-                        <div>
-                            <label>工作地点</label>
-                            <input name="postAddress" class="form-poshytip" >
-                        </div>
-                        <div>
-                            <input type="hidden" name="userId" th:value="${session.userId}">
-                        </div>
-                        <p><input type="submit" class="submit" id="submit" value="保存"></p>
-                    </fieldset>
+                <h4>招聘信息草稿箱</h4>
+                <form method="post" th:action="@{InterViewSkillSearch}">
+                    <h3>
+                        <input name="keyword" value="" type="text"placeholder="输入关键字">
+                        <button type="submit" class="btn btn-green">查询</button>
+                    </h3>
                 </form>
+                <div>
+                    <a class="btn btn-green" href="/postMessageAdd">添加</a>
+                </div>
             </div>
+
+            <div>
+                <table class="table table-bordered  table-hover" th:each="list,interSkillListStat :${interSkillList}">
+                    <tbody>
+                    <tr >
+                        <td th:text="${list.getInterSkillId()}" style="display:none"></td>
+                        <td th:text="${list.getInterSkillTitle()}"></td>
+                        <td ><!--<a class="btn  btn-default">发布</a>--><a th:href="@{InterSkillLook(id=${list.getInterSkillId()})}" class="btn btn-danger">查看详情</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
         </div>
 
     </div>
@@ -127,5 +113,4 @@
 </div>
 
 </body>
-
 </html>

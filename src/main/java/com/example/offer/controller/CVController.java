@@ -50,7 +50,7 @@ public class CVController {
     @RequestMapping("/MyCV")
     public String department( ModelMap modelMap) {
         System.out.println("跳转测试页面");
-        return "test";
+        return "redirect:/DepartmentList";
 
 
     }

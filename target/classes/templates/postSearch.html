@@ -113,7 +113,53 @@
 <div id="menu" th:replace="~{index::TopMenu(currentUrl='postSearch')}"></div>
 <!--content-->
 <div id="main" th:fragment="LowerContent">
+    <div class="wrapper">
+        <div id="content">
 
+            <div class="line-divider">
+                <h4>职位信息</h4>
+                <form method="post">
+                    <h3>
+                        <input name="keyword" type="text"placeholder="输入关键字">
+                        <button type="submit" class="btn btn-green">查询</button>
+                    </h3>
+                </form>
+                <div>
+                    <a class="btn btn-green" href="/postMessageAdd">添加</a>
+                </div>
+            </div>
+
+            <div>
+                <table class="table table-bordered  table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>招聘岗位</th>
+                        <th>招聘人数</th>
+                        <th>工作地点</th>
+                        <th>薪资</th>
+                        <th>技能</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="case,state:${postList}">
+                        <td th:text="${state.count}"></td>
+                        <td><a th:text="${case.postName}" th:href="@{/oneself/}+${case.postId}" class="btn btn-link"></a></td>
+                        <td th:text="${case.postNum}"></td>
+                        <td th:text="${case.postAddress}"></td>
+                        <td><span th:text="${case.postSalary}"></span></td>
+                        <td th:text="${case.postSkill}"></td>
+                        <td ><a class="btn  btn-default">发布</a><a th:href="@{/delete/}+${case.postId}" class="btn btn-danger">删除</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+        </div>
+
+    </div>
 
 </div>
 
