@@ -24,6 +24,45 @@
   <select id="listAll" resultMap="BaseResultMap">
       SELECT *
       FROM post_message
-      WHERE userId = #{user.userId}
+      WHERE userId = #{user.userId};
   </select>
+
+  <select id="queryByKeyword" resultMap="BaseResultMap">
+    SELECT *
+    FROM post_message
+    <where>
+      <if test="keyword!=null">
+        <bind name="keywordLike" value="'%'+keyword+'%'"></bind>
+        AND (postName LIKE #{keywordLike}) OR (postSkill LIKE #{keywordLike})
+        OR (postAddress LIKE #{keywordLike}) and userId=#{userId}
+      </if>
+    </where>
+  </select>
+
+  <select id="oneMessage" resultMap="BaseResultMap">
+    SELECT *
+    FROM post_message
+    WHERE postId = #{postId};
+  </select>
+
+  <update id="update" parameterType="com.example.offer.model.PostMessage">
+    UPDATE post_message SET postName=#{postName},postSkill=#{postSkill},
+    postNum=#{postNum},postIntroduce=#{postIntroduce},postRequire=#{postRequire},
+    postAddress=#{postAddress},postSalary=#{postSalary}
+    WHERE postId=#{postId};
+  </update>
+
+  <delete id="delete" >
+    DELETE FROM post_message WHERE postId=#{postId};
+  </delete>
+
+  <insert id="save" parameterType="com.example.offer.model.PostMessage">
+    INSERT INTO post_message(postName, postSkill, postNum, postSalary, postIntroduce, postRequire, postAddress, userId)
+    VALUE(#{postName},#{postSkill},#{postNum},#{postSalary},#{postIntroduce},#{postRequire},#{postAddress},#{userId});
+
+  </insert>
+
+
+
+
 </mapper>
