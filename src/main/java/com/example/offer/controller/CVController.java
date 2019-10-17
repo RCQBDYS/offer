@@ -372,12 +372,5 @@ public class CVController {
             return "workadd";
 
     }
-//退出登录
-    @RequestMapping("/LoginOut")
-    public String loginOut(HttpSession session) {
-        session.removeAttribute("username");
-        session.removeAttribute("usertype");
-        return "redirect:/";
 
-    }
 }
