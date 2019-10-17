@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public class EnterMessageController {
     Logger logger = LoggerFactory.getLogger(userController.class);
 
 
-    /*跳转至企业信息修改*/
+    /*跳转至企业信息修改页面*/
     @GetMapping("/enMessageList/{userId}")
     public String enMessageList(@PathVariable("userId") Long userId, Model model){
         logger.info("userId= " + userId);
@@ -43,19 +44,20 @@ public class EnterMessageController {
         return "enMessageEdit";
     }
 
-    /*企业信息的显示*/
-    @GetMapping("/enMessageListTable/{userId}")
-    public String enMessageListTable(@PathVariable("userId") Long userId,Model model){
-        logger.info("Table userId= " + userId);
+    /*企业信息的显示页面*/
+    @GetMapping("/enMessageListTable")
+    public String enMessageListTable(Model model,HttpSession session){
+        Long userId = Long.parseLong(String.valueOf(session.getAttribute("userId")));
+        logger.info("userId"+ userId);
         EnterpriseMessage enterpriseMessage = messageService.selectUserId(userId);
         model.addAttribute(enterpriseMessage);
         return "enMessage";
     }
 
     /*显示公司的招聘信息*/
-    @GetMapping("/postMessage/{userId}")
-    public String toPagePost(@PathVariable("userId") Long userId, Model model){
-        logger.info("post userId = " + userId);
+    @GetMapping("/postMessage")
+    public String toPagePost(Model model,HttpSession session){
+        Long userId = Long.parseLong(String.valueOf(session.getAttribute("userId")));
         List<PostMessage> postMessageList = postService.listAll(userId);
         logger.info("postMessage" + postMessageList);
         model.addAttribute("postMessageList",postMessageList);
@@ -67,11 +69,10 @@ public class EnterMessageController {
     public String editMessage(EnterpriseMessage enterpriseMessage){
         logger.info(enterpriseMessage.toString());
         messageService.update(enterpriseMessage);
-        return "index";
+        return "redirect:/enMessageListTable";
     }
 
-    /*招聘岗位信息的查询*/
-
+    /*招聘岗位信息的查询在没有keyword时显示全部页面*/
     @PostMapping("/search/message/{userId}")
     public String search(String keyword,Model model,@PathVariable("userId") Long userId){
         List<PostMessage> postMessageList = postService.queryByKeyword(keyword,userId);
@@ -80,7 +81,7 @@ public class EnterMessageController {
         return "postMessage";
     }
 
-    /*招聘岗位信息的具体显示*/
+    /*招聘岗位信息的具体显示同时也是修改页面*/
     @GetMapping("/oneself/{postId}")
     public String postMessageEdit(@PathVariable("postId") Long postId,Model model){
         PostMessage postMessage = postService.oneMessage(postId);
@@ -90,16 +91,20 @@ public class EnterMessageController {
 
     /*招聘信息的修改*/
     @PostMapping("/oneselfMessageEdit")
-    public String oneselfMessageEdit(PostMessage postMessage){
+    public String oneselfMessageEdit(PostMessage postMessage,HttpSession session){
+        String num = (String)session.getAttribute("userId");
+        Long userId = Long.parseLong(num);
         logger.info("postMessage = " + postMessage);
         postService.update(postMessage);
-        return "index";
+        return "/search/message/"+userId;
     }
     /*删除招聘信息*/
     @DeleteMapping("/delete/{postId}")
-    public String deleteMessage(@PathVariable("postId") Long postId){
+    public String deleteMessage(@PathVariable("postId") Long postId,HttpSession session){
+        String num = (String)session.getAttribute("userId");
+        Long userId = Long.parseLong(num);
         postService.delete(postId);
-        return "index";
+        return "/search/message/"+userId;
     }
 
     /*跳转至企业添加页面*/
@@ -108,12 +113,14 @@ public class EnterMessageController {
         return "postMessageAdd";
     }
 
-    /*企业添加*/
+    /*企业岗位信息的添加*/
     @PostMapping("/postMessageSave")
-    public String save(PostMessage postMessage){
+    public String save(PostMessage postMessage, HttpSession session){
         logger.info("添加="+postMessage);
         postService.save(postMessage);
-        return "index";
+        String num = (String)session.getAttribute("userId");
+        Long userId = Long.parseLong(num);
+        return "redirect:/search/message/"+userId;
     }
 
 
