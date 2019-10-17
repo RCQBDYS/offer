@@ -131,7 +131,7 @@
 
                         <ul>
                             <li><a th:href="@{/enMessageListTable}" th:if="${session.userType== '公司'}"><span>企业个人信息</span></a></li>
-                            <li><a th:href="@{/postMessage}" th:if="${session.userType== '公司'}"><span>招聘岗位的发布</span></a></li>
+                            <li><a href="/postMessage" th:if="${session.userType== '公司'}"><span>招聘岗位的发布</span></a></li>
                         </ul>
                     </li>
 
@@ -158,20 +158,20 @@
     </div>
     <!-- ENDS Menu -->
 
-    <div id="main" th:fragment="LowerContent">
+   <!-- <div id="main" th:fragment="LowerContent">
         <div id="wrap">
-            <!-- 左侧菜单栏目块 -->
+            &lt;!&ndash; 左侧菜单栏目块 &ndash;&gt;
             <div class="leftMeun" id="leftMeun" th:replace="index1::leftMeun" ></div>
-            <!-- 右侧具体内容栏目 -->
+            &lt;!&ndash; 右侧具体内容栏目 &ndash;&gt;
             <div id="rightContent" th:fragment="rightContent" style="padding-left: 200px">
                 <div class="wrapper">
                     <div id="content">
                         <div class="three-fourth ">
-                            <!-- title -->
+                            &lt;!&ndash; title &ndash;&gt;
                             <div id="page-title">
                                 <span class="title">项目经验信息</span>
                             </div>
-                            <!-- ENDS title -->
+                            &lt;!&ndash; ENDS title &ndash;&gt;
 
                             <script type="text/javascript" src="/static/assets/js/form-validation.js"></script>
                             <form id="contactForm" role="form" th:action="@{ProjectAddDo}" th:object="${projectExperience}" method="post">
@@ -204,7 +204,7 @@
                                     </p>
                                 </fieldset>
                             </form>
-                            <!-- ENDS form -->
+                            &lt;!&ndash; ENDS form &ndash;&gt;
 
                         </div>
                         <div class="clear "></div>
@@ -215,7 +215,7 @@
 
 
         </div>
-    </div>
+    </div>-->
     <!-- ENDS MAIN -->
 </div>
 </body>
