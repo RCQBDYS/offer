@@ -12,6 +12,8 @@ public interface PostMessageMapper {
 
     List<PostMessage> listAll(Long userId);
 
+    List<PostMessage> postList();
+
     List<PostMessage> queryByKeyword(@Param(value="keyword") String keyword,Long userId);
 
     PostMessage oneMessage(Long postId);
@@ -21,5 +23,7 @@ public interface PostMessageMapper {
     int delete(Long postId);
 
     int  save(PostMessage postMessage);
+
+    List<PostMessage> search(@Param(value = "keyword") String keyword);
 
 }

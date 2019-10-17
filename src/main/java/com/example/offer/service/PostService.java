@@ -21,4 +21,10 @@ public interface PostService {
     int delete(Long postId);
 
     int save(PostMessage postMessage);
+
+    List<PostMessage> search(String keyword);
+
+    List<PostMessage> postList();
+
+
 }
