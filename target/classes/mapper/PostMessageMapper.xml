@@ -24,7 +24,7 @@
     <select id="listAll" resultMap="BaseResultMap">
       SELECT *
       FROM post_message
-      WHERE userId = #{user.userId};
+      WHERE userId = #{user.userId} AND postState = 0;
   </select>
 
     <select id="queryByKeyword" resultMap="BaseResultMap">
@@ -32,7 +32,7 @@
         FROM post_message
         <where>
             <if test="userId!=null">
-                userId=#{userId}
+                userId=#{userId} AND postState = 0
             </if>
             <if test="keyword!=null">
                 <bind name="keywordLike" value="'%'+keyword+'%'"></bind>
@@ -51,7 +51,7 @@
     <update id="update" parameterType="com.example.offer.model.PostMessage">
     UPDATE post_message SET postName=#{postName},postSkill=#{postSkill},
     postNum=#{postNum},postIntroduce=#{postIntroduce},postRequire=#{postRequire},
-    postAddress=#{postAddress},postSalary=#{postSalary},postSuccNum=#{postSuccNum},postState=#{postState}
+    postAddress=#{postAddress},postSalary=#{postSalary},postSuccNum=#{postSuccNum},postState=#{postState},enterId=#{enterId}
     WHERE postId=#{postId};
   </update>
 
@@ -61,9 +61,9 @@
 
     <insert id="save" parameterType="com.example.offer.model.PostMessage">
     INSERT INTO post_message(postName, postSkill, postNum, postSalary, postIntroduce, postRequire, postAddress, userId
-    ,postState,postSuccNum)
+    ,postState,postSuccNum,enterId)
     VALUE(#{postName},#{postSkill},#{postNum},#{postSalary},#{postIntroduce},#{postRequire},#{postAddress},#{userId},
-    #{postState},#{postSuccNum});
+    #{postState},#{postSuccNum},#{enterId});
 
   </insert>
 
@@ -85,5 +85,31 @@
 
     </select>
 
+    <update id="postPut" parameterType="com.example.offer.model.PostMessage">
+        UPDATE post_message SET postState=1
+        WHERE postId=#{postId};
+    </update>
+
+    <select id="selectPut" resultMap="BaseResultMap">
+        SELECT *
+        FROM post_message
+        WHERE userId=#{userId} AND postState =1;
+    </select>
+
+    <select id="searchPut" resultMap="BaseResultMap">
+        SELECT *
+        FROM post_message
+        <where>
+            <if test="userId!=null">
+                userId=#{userId} AND postState = 1
+            </if>
+            <if test="keyword!=null">
+                <bind name="keywordLike" value="'%'+keyword+'%'"></bind>
+                AND ((postName LIKE #{keywordLike}) OR (postSkill LIKE #{keywordLike})
+                OR (postAddress LIKE #{keywordLike}));
+            </if>
+        </where>
+
+    </select>
 
 </mapper>

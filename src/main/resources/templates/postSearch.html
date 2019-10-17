@@ -106,7 +106,7 @@
                         <td th:text="${state.count}"></td>
                         <td><a th:text="${case.postName}" th:href="@{/oneself/}+${case.postId}" class="btn btn-link"></a></td>
                         <td th:text="${case.postNum}"></td>
-                        <td th:text="${case.postAddress}"></td>
+                        <td ><a th:text="${case.postAddress}" href="/map" class="btn btn-link"></a></td>
                         <td><span th:text="${case.postSalary}"></span></td>
                         <td th:text="${case.postSkill}"></td>
                     </tr>
