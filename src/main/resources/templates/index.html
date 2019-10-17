@@ -146,7 +146,12 @@
                             <li><a href="video-gallery.html"><span> Video gallery </span></a></li>
                         </ul>
                     </li>
-                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{contact.html}"th:if="${session.userType== '公司'} or ${session.userType== '应聘者'}">职场资讯<span class="subheader">Get in touch</span></a></li>
+                    <li th:class="${currentUrl=='workInfo'?'current-menu-item':''}"><a th:if="${session.userType== '公司'} or ${session.userType== '应聘者'}">职场资讯<span class="subheader">Get in touch</span></a>
+                        <ul>
+                            <li><a th:href="@{InterviewSkill}"  ><span>面试技巧</span></a></li>
+                            <li><a th:href="@{LatestInformation}" ><span>职场最新资讯</span></a></li>
+                        </ul>
+                    </li>
                     <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="@{contact.html}" th:if="${session.userType== '应聘者'}">我的面试<span class="subheader">Get in touch</span></a></li>
                     <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="LoginOut"  onclick="return confirm('确定注销?')"}>注销登录</a></li>
                 </ul>

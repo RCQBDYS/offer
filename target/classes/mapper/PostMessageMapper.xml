@@ -62,23 +62,6 @@
 
   </insert>
 
-  <select id="postList" resultMap="BaseResultMap">
-    SELECT *
-    FROM post_message;
-  </select>
-
-  <select id="search" resultMap="BaseResultMap">
-    SELECT *
-    FROM post_message
-    <where>
-      <if test="keyword!=null">
-        <bind name="keywordLike" value="'%'+keyword+'%'"></bind>
-        AND (postName LIKE #{keywordLike}) OR (postSkill LIKE #{keywordLike})
-        OR (postAddress LIKE #{keywordLike});
-      </if>
-    </where>
-  </select>
-
 
 
 
