@@ -96,6 +96,11 @@
         WHERE userId=#{userId} AND postState =1;
     </select>
 
+    <select id="findAllPost" resultMap="BaseResultMap">
+      select *
+      from post_message;
+  </select>
+
     <select id="searchPut" resultMap="BaseResultMap">
         SELECT *
         FROM post_message

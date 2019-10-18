@@ -15,5 +15,5 @@ public interface EMessageService {
 
     EnterpriseMessage selectUserId(Long userId);
 
-
+    List<EnterpriseMessage> findAllEnterp();
 }

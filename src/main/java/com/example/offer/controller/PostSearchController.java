@@ -50,7 +50,7 @@ public class PostSearchController {
     public String putMessage(@PathVariable("postId") int postId){
         logger.info("postId " + postId);
         postService.postPut(postId);
-        return "redirect:/putPost";
+        return "redirect:/postPut";
     }
 
     /*已发布岗位查询*/

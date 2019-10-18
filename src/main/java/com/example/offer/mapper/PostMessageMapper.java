@@ -32,4 +32,5 @@ public interface PostMessageMapper {
 
     List<PostMessage> searchPut(String keyword,Long userId);
 
+    List<PostMessage> findAllPost();
 }

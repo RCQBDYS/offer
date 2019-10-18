@@ -32,15 +32,19 @@ public class UserInfoController {
         String userType= (String)httpSession.getAttribute("userType");
         System.out.println("session是："+userName);
         String real= userInfoServiceImpl.check(userName);
-if(userType=="应聘者")
-        if (real==null|| "".equals(real)){
-            return  "userInfoAdd";
-        }
-   else
-        return "index";
-   else
-       return "index";
-    }
+        if(userType=="应聘者")
+            if (real==null|| "".equals(real)){
+                return  "userInfoAdd";
+            }
+            else
+                return "index";
+        else {
+            if (userType.equals("管理员")) {
+                return "managelist";
+            } else {
+                return "index";
+            }
+        }    }
     @RequestMapping("/UserInfoAddDo")
     public String USerInfoAddDo(@Validated UserInfo userInfo,
                                 BindingResult bindingResult, HttpServletRequest request,

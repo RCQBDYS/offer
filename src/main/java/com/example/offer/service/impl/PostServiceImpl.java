@@ -77,4 +77,6 @@ public class PostServiceImpl implements PostService {
     public List<PostMessage> searchPut(String keyword, Long userId) {
         return messageMapper.searchPut(keyword,userId);
     }
+    @Override
+    public List<PostMessage> findAllPost(){return messageMapper.findAllPost();}
 }

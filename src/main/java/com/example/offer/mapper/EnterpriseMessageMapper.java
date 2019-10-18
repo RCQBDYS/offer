@@ -13,5 +13,5 @@ public interface EnterpriseMessageMapper {
     EnterpriseMessage selectUserId(Long userId);
 
     int update(EnterpriseMessage enterpriseMessage);
-
+    List<EnterpriseMessage> findAllEnterp();
 }

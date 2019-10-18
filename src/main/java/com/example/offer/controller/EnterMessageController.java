@@ -119,6 +119,15 @@ public class EnterMessageController {
         return "redirect:/postMessage";
     }
 
-
+    //管理企业
+    @GetMapping("/enters/{userId}")
+    public String findAllEnterp(@PathVariable("userId") Long userId, Model model){
+        System.out.println(userId);
+        logger.info("post userId = " + userId);
+        List<EnterpriseMessage> eList = messageService.findAllEnterp();
+        logger.info("postMessage" + eList);
+        model.addAttribute("elist",eList);
+        return "entermanage";
+    }
 
 }

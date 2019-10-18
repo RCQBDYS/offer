@@ -77,7 +77,7 @@
             <div class="wrapper">
                 <!-- Navigation -->
                 <ul id="nav" class="sf-menu">
-                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{MyCV}" th:if="${session.userType == '应聘者' }" >用户模块<span class="subheader">Welcome</span></a></li>
+                    <!--<li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{MyCV}" th:if="${session.userType == '应聘者' }" >用户模块<span class="subheader">Welcome</span></a></li>-->
                     <li th:class="${currentUrl=='enterprise'?'current-menu-item':''}"><a th:if="${session.userType== '公司'}">企业模块<span class="subheader">Enterprise module</span></a>
 
                         <ul>
@@ -89,13 +89,13 @@
 
                     <li th:class="${currentUrl==''?'current-menu-item':''}"><a th:href="@{MyCV}" th:if="${session.userType== '应聘者'}">简历管理<span class="subheader">Read our posts</span></a></li>
                     <li th:class="${currentUrl=='postSearch'?'current-menu-item':''}"><a href="/postSearch.html" th:if="${session.userType== '应聘者'}">职业搜索<span class="subheader">Career search</span></a></li>
-                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a  th:href = "@{gallery.html}" th:if="${session.userType eq '管理员'}">系统管理<span class="subheader">Featured work</span></a>
+                    <li th:class="${currentUrl=='manage'?'current-menu-item':''}"><a  th:href = "@{gallery.html}" th:if="${session.userType eq '管理员'}">系统管理<span class="subheader">Featured work</span></a>
 
                         <ul>
-                            <li><a href="gallery.html"><span> Four columns</span></a></li>
-                            <li><a href="gallery-3.html"><span> Three columns </span></a></li>
-                            <li><a href="gallery-2.html"><span> Two columns </span></a></li>
-                            <li><a href="video-gallery.html"><span> Video gallery </span></a></li>
+                            <li><a th:href="@{users/}+${session.userId}"><span> 用户管理 </span></a></li>
+                            <li><a th:href="@{enters/}+${session.userId}"><span> 企业管理 </span></a></li>
+                            <li><a href="gallery-2.html"><span> 信息管理 </span></a></li>
+                            <li><a th:href="@{mon}"><span> 数据统计 </span></a></li>
                         </ul>
                     </li>
                     <li th:class="${currentUrl=='workInfo'?'current-menu-item':''}"><a th:if="${session.userType== '公司'} or ${session.userType== '应聘者'}">职场资讯<span class="subheader">Get in touch</span></a>
@@ -104,7 +104,7 @@
                             <li><a th:href="@{LatestInformation}" ><span>职场最新资讯</span></a></li>
                         </ul>
                     </li>
-                    <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="@{contact.html}" th:if="${session.userType== '应聘者'}">我的面试<span class="subheader">Get in touch</span></a></li>
+                   <!-- <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="@{contact.html}" th:if="${session.userType== '应聘者'}">我的面试<span class="subheader">Get in touch</span></a></li>-->
                     <li th:class="${currentUrl==''?'current-menu-item':''}"><a href="LoginOut"  onclick="return confirm('确定注销?')"}>注销登录</a></li>
                 </ul>
                 <!-- Navigation -->
@@ -153,73 +153,11 @@
                     </table>
                 </div>
 
-
-
             </div>
 
         </div>
 
     </div>
-
-   <!-- <div id="main" th:fragment="LowerContent">
-        <div id="wrap">
-            &lt;!&ndash; 左侧菜单栏目块 &ndash;&gt;
-            <div class="leftMeun" id="leftMeun" th:replace="index1::leftMeun" ></div>
-            &lt;!&ndash; 右侧具体内容栏目 &ndash;&gt;
-            <div id="rightContent" th:fragment="rightContent" style="padding-left: 200px">
-                <div class="wrapper">
-                    <div id="content">
-                        <div class="three-fourth ">
-                            &lt;!&ndash; title &ndash;&gt;
-                            <div id="page-title">
-                                <span class="title">项目经验信息</span>
-                            </div>
-                            &lt;!&ndash; ENDS title &ndash;&gt;
-
-                            <script type="text/javascript" src="/static/assets/js/form-validation.js"></script>
-                            <form id="contactForm" role="form" th:action="@{ProjectAddDo}" th:object="${projectExperience}" method="post">
-                                <fieldset>
-                                    <div>
-                                        <label>项目名称</label>
-                                        <input name="projectname"  type="text" th:field = "*{projectname}" class="form-poshytip" title="填入项目名称" />
-                                        <div style="color: red" th:if="${#fields.hasErrors('projectname')}" th:errors="*{projectname}"></div>
-                                    </div>
-                                    <div>
-                                        <label>角色</label>
-                                        <input name="projectrole"  type="text" th:field = "*{projectrole}" class="form-poshytip" title="填入担任角色" />
-                                    </div>
-                                    <div>
-                                        <label>工作内容</label>
-                                        <textarea name="projectcontent" th:field = "*{projectcontent}" class="form-poshytip" title="填入项目简介" ></textarea>
-                                    </div>
-                                    <div>
-                                        <label>开始日期</label>
-                                        <input  name="projectstartdate"  type="date" th:field = "*{projectstartdate}" class="form-poshytip" title="填入开始日期"/>
-                                        <div style="color: red"  th:if="${#fields.hasErrors('projectenddate')}" th:errors="*{projectenddate}"></div>
-                                    </div>
-                                    <div>
-                                        <label>结束日期</label>
-                                        <input name="projectenddate"  type = "date" th:field = "*{projectenddate}" class="form-poshytip" title="填入结束日期"/>
-                                        <div style="color: red" th:if="${#fields.hasErrors('projectenddate')}" th:errors="*{projectenddate}"></div>
-                                    </div>
-                                    <p><input type="submit" value="保存" name="submit" id="submit" />
-                                        <button type="button"  id = "window-close-button" onclick="ret()"> 返回 </button>
-                                    </p>
-                                </fieldset>
-                            </form>
-                            &lt;!&ndash; ENDS form &ndash;&gt;
-
-                        </div>
-                        <div class="clear "></div>
-                    </div>
-                </div>
-
-            </div>
-
-
-        </div>
-    </div>-->
-    <!-- ENDS MAIN -->
 </div>
 </body>
 </html>
