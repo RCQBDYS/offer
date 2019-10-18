@@ -111,7 +111,7 @@
                           <td th:text="${case.postNum}"></td>
                           <td th:text="${case.postAddress}"></td>
                           <td><span th:text="${case.postSalary}"></span></td>
-                          <td ><a class=" btn  btn-default">发布</a><a th:attr="del_uri=@{/delete/}+${case.postId}"class="delBtn btn btn-danger">删除</a></td>
+                          <td ><a class=" btn  btn-default"th:href=" @{/putPost/}+${case.postId}">发布</a><a th:attr="del_uri=@{/delete/}+${case.postId}"class="delBtn btn btn-danger">删除</a></td>
                         </tr>
                         </tbody>
                     </table>
@@ -141,6 +141,22 @@
         }
         return false;
     });
+
+   /* $(".BtnPut").click(function () {
+        if (confirm("确认发布？")){
+            var url=  $(this).attr("del_uri");
+            $.ajax({
+                type:"post",
+                url:"http://localhost:8080"+url,
+                success:function () {
+                    alert("删除成功！");
+                    location="http://localhost:8080/postMessage";
+                }
+            })
+            return true;
+        }
+        return false;
+    });*/
 </script>
 
 </body>

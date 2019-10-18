@@ -62,4 +62,19 @@ public class PostServiceImpl implements PostService {
     public List<PostMessage> postList() {
         return messageMapper.postList();
     }
+
+    @Override
+    public int postPut(int postId) {
+        return messageMapper.postPut(postId);
+    }
+
+    @Override
+    public List<PostMessage> selectPut(Long userId) {
+        return messageMapper.selectPut(userId);
+    }
+
+    @Override
+    public List<PostMessage> searchPut(String keyword, Long userId) {
+        return messageMapper.searchPut(keyword,userId);
+    }
 }

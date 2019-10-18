@@ -56,6 +56,9 @@ public class EnterMessageController {
     public String toPagePost(Model model,HttpSession session){
         Long userId = Long.parseLong(String.valueOf(session.getAttribute("userId")));
         List<PostMessage> postMessageList = postService.listAll(userId);
+        EnterpriseMessage enterpriseMessage = messageService.selectUserId(userId);
+        logger.info("enterId"+enterpriseMessage.getEnterId());
+        session.setAttribute("enterId",enterpriseMessage.getEnterId());
         logger.info("postMessage" + postMessageList);
         model.addAttribute("postMessageList",postMessageList);
         return "postMessage";
@@ -86,6 +89,7 @@ public class EnterMessageController {
         model.addAttribute(postMessage);
         return "postMessageEdit";
     }
+
 
     /*招聘信息的修改*/
     @PostMapping("/oneselfMessageEdit")
