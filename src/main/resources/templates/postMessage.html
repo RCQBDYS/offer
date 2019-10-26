@@ -23,12 +23,12 @@
     <![endif]-->
     <!-- ENDS CSS -->
     <!-- JS -->
-    <script type="text/javascript" src="/assets/js/jquery-1.5.1.min.js"></script>
+   <!-- <script type="text/javascript" src="/assets/js/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery-ui-1.8.13.custom.min.js"></script>
     <script type="text/javascript" src="/assets/js/easing.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.scrollTo-1.4.2-min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.cycle.all.js"></script>
-    <script type="text/javascript" src="/assets/js/custom.js"></script>
+    <script type="text/javascript" src="/assets/js/custom.js"></script>-->
 
     <!-- Isotope -->
     <script src="/assets/js/jquery.isotope.min.js"></script>
@@ -81,7 +81,7 @@
 
                 <div class="line-divider">
                     <h4>招聘信息草稿箱</h4>
-                    <form method="post" th:action="@{/search/message/} + ${session.userId}">
+                    <form method="post" th:action="@{/search/message}">
                         <h3>
                             <input name="keyword" th:value="${keyword}" type="text"placeholder="输入关键字">
                             <button type="submit" class="btn btn-green">查询</button>
@@ -111,19 +111,53 @@
                           <td th:text="${case.postNum}"></td>
                           <td th:text="${case.postAddress}"></td>
                           <td><span th:text="${case.postSalary}"></span></td>
-                          <td ><a class="btn  btn-default">发布</a><a th:href="@{/delete/}+${case.postId}" class="btn btn-danger">删除</a></td>
+                          <td ><a class=" btn  btn-default"th:href=" @{/putPost/}+${case.postId}">发布</a><a th:attr="del_uri=@{/delete/}+${case.postId}"class="delBtn btn btn-danger">删除</a></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-
-
-
             </div>
 
         </div>
 
     </div>
+<script src="/assets/js/jquery-1.10.2.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<script src="/assets/js/jquery.metisMenu.js"></script>
+<script src="/assets/js/custom.js"></script>
+<script>
+    $(".delBtn").click(function () {
+        if (confirm("确认要删除吗？")){
+            var url=  $(this).attr("del_uri");
+            $.ajax({
+                type:"delete",
+                url:"http://localhost:8080"+url,
+                success:function () {
+                    alert("删除成功！");
+                    location="http://localhost:8080/postMessage";
+                }
+            })
+            return true;
+        }
+        return false;
+    });
+
+   /* $(".BtnPut").click(function () {
+        if (confirm("确认发布？")){
+            var url=  $(this).attr("del_uri");
+            $.ajax({
+                type:"post",
+                url:"http://localhost:8080"+url,
+                success:function () {
+                    alert("删除成功！");
+                    location="http://localhost:8080/postMessage";
+                }
+            })
+            return true;
+        }
+        return false;
+    });*/
+</script>
 
 </body>
 </html>

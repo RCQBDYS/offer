@@ -21,8 +21,8 @@
     <select id="seacher" parameterType="java.lang.String" resultMap="BaseResultMap">
         select *
         from inter_skill
-        where interSkillTitle like #{interSkillTitle,jdbcType=VARCHAR}
-            or interSkillAuthor like #{interSkillAuthor,jdbcType=VARCHAR}
+        where interSkillTitle like CONCAT('%',#{interSkillTitle,jdbcType=VARCHAR},'%')
+            or interSkillAuthor like CONCAT('%',#{interSkillAuthor,jdbcType=VARCHAR},'%')
     </select>
 
     <select id="findAll"  resultMap="BaseResultMap">

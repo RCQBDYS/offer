@@ -20,7 +20,12 @@
         WHERE enterprise_message.userId = #{userId}
     </select>
 
-  <update id="update" parameterType="com.example.offer.model.EnterpriseMessage">
+    <select id="findAllEnterp" resultMap="BaseResultMap">
+      select *
+      from enterprise_message
+  </select>
+
+    <update id="update" parameterType="com.example.offer.model.EnterpriseMessage">
         UPDATE enterprise_message SET enterName=#{enterName},enterProduct=#{enterProduct},
         enterAddress=#{enterAddress},enterWelfare=#{enterWelfare},enterSize=#{enterSize}
         WHERE enterId=#{enterId}

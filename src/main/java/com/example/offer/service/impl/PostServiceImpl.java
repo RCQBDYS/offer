@@ -32,6 +32,11 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public List<PostMessage> search(String keyword) {
+        return messageMapper.search(keyword);
+    }
+
+    @Override
     public PostMessage oneMessage(Long postId) {
         return messageMapper.oneMessage(postId);
     }
@@ -50,4 +55,28 @@ public class PostServiceImpl implements PostService {
     public int save(PostMessage postMessage) {
         return messageMapper.save(postMessage);
     }
+
+
+
+    @Override
+    public List<PostMessage> postList() {
+        return messageMapper.postList();
+    }
+
+    @Override
+    public int postPut(int postId) {
+        return messageMapper.postPut(postId);
+    }
+
+    @Override
+    public List<PostMessage> selectPut(Long userId) {
+        return messageMapper.selectPut(userId);
+    }
+
+    @Override
+    public List<PostMessage> searchPut(String keyword, Long userId) {
+        return messageMapper.searchPut(keyword,userId);
+    }
+    @Override
+    public List<PostMessage> findAllPost(){return messageMapper.findAllPost();}
 }

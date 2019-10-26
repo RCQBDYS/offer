@@ -29,15 +29,22 @@ public class UserInfoController {
                                BindingResult bindingResult, HttpServletRequest request,
                                HttpSession httpSession, HttpServletResponse httpServletResponse) {
         String userName= (String)httpSession.getAttribute("userName");
+        String userType= (String)httpSession.getAttribute("userType");
         System.out.println("session是："+userName);
         String real= userInfoServiceImpl.check(userName);
-
-        if (real==null|| "".equals(real)){
-            return  "userInfoAdd";
-        }
-   else
-        return "index";
-    }
+        if(userType=="应聘者")
+            if (real==null|| "".equals(real)){
+                return  "userInfoAdd";
+            }
+            else
+                return "index";
+        else {
+            if (userType.equals("管理员")) {
+                return "managelist";
+            } else {
+                return "index";
+            }
+        }    }
     @RequestMapping("/UserInfoAddDo")
     public String USerInfoAddDo(@Validated UserInfo userInfo,
                                 BindingResult bindingResult, HttpServletRequest request,

@@ -29,5 +29,8 @@ public class EMessageServiceImpl implements EMessageService {
         return messageMapper.selectUserId(userId);
     }
 
-
+    @Override
+    public List<EnterpriseMessage> findAllEnterp(){
+        return messageMapper.findAllEnterp();
+    }
 }

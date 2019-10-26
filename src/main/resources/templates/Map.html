@@ -3,12 +3,12 @@
 <!--
 
 @author:wangshen
-@date: 2019/10/1111:18
-主要功能说明:企业招聘信息页面
+@date: 2019/10/183:12
+主要功能说明:
 -->
 <head>
     <meta charset="utf-8">
-    <title>offer100</title>
+    <title>地图搜索</title>
 
     <!--bootstrap-->
     <link rel="stylesheet" href="/assets/css/bootstrap.css">
@@ -22,13 +22,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/ie8-hacks.css" />
     <![endif]-->
     <!-- ENDS CSS -->
-    <!-- JS -->
-    <script type="text/javascript" src="/assets/js/jquery-1.5.1.min.js"></script>
-    <script type="text/javascript" src="/assets/js/jquery-ui-1.8.13.custom.min.js"></script>
-    <script type="text/javascript" src="/assets/js/easing.js"></script>
-    <script type="text/javascript" src="/assets/js/jquery.scrollTo-1.4.2-min.js"></script>
-    <script type="text/javascript" src="/assets/js/jquery.cycle.all.js"></script>
-    <script type="text/javascript" src="/assets/js/custom.js"></script>
 
     <!-- Isotope -->
     <script src="/assets/js/jquery.isotope.min.js"></script>
@@ -70,38 +63,28 @@
     <!-- ENDS Fancybox -->
     <link href="/assets/css/bootstrap.css" rel="stylesheet">
 
+    <style type="text/css">
+        body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+    </style>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=CHOIdyDHsgrgFmcSeTZ1mA84xVrf0uaq"></script>
 </head>
 <body>
-<!--topMenu-->
-<div id="menu" th:replace = "~{index::TopMenu(currentUrl='workInfo')}"></div>
-<!--content-->
+<div id="menu" th:replace="~{index::TopMenu(currentUrl='postSearch')}"></div>
 <div id="main" th:fragment="LowerContent">
     <div class="wrapper">
-        <div id="content">
+            <div id="content">
 
-            <div class="line-divider">
-                <h4>面试技巧资讯</h4>
-                <form method="post" th:action="@{InterviewSkillSearch}">
-                    <h3>
-                        <input name="keyword" value="" type="text"placeholder="输入关键字">
-                        <button type="submit" class="btn btn-green">查询</button>
-                    </h3>
-                </form>
-                <div>
-                    <a class="btn btn-green" href="/postMessageAdd">添加</a>
+                <div class="line-divider">
+                    <h4>地图位置</h4>
+                    <form method="post" th:action="@{/search/postMessage}">
+                        <h3>
+                            <input name="keyword" th:value="${keyword}" type="text"placeholder="输入关键字">
+                            <button type="submit" class="btn btn-green">查询</button>
+                        </h3>
+                    </form>
                 </div>
-            </div>
+            <div id="allmap">
 
-            <div>
-                <table class="table table-bordered  table-hover" th:each="list,interSkillListStat :${interSkillList}">
-                    <tbody>
-                    <tr >
-                        <td th:text="${list.getInterSkillId()}" style="display:none"></td>
-                        <td th:text="${list.getInterSkillTitle()}"></td>
-                        <td ><!--<a class="btn  btn-default">发布</a>--><a th:href="@{InterSkillLook(id=${list.getInterSkillId()})}" class="btn btn-danger">查看详情</a></td>
-                    </tr>
-                    </tbody>
-                </table>
             </div>
 
 
@@ -109,8 +92,19 @@
         </div>
 
     </div>
-
 </div>
-
 </body>
 </html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");    // 创建Map实例
+    map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+    //添加地图类型控件
+    map.addControl(new BMap.MapTypeControl({
+        mapTypes:[
+            BMAP_NORMAL_MAP,
+            BMAP_HYBRID_MAP
+        ]}));
+    map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script>

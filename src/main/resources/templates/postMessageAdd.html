@@ -115,6 +115,9 @@
                         </div>
                         <div>
                             <input type="hidden" name="userId" th:value="${session.userId}">
+                            <input type="hidden" name="postState" th:value="${0}">
+                            <input type="hidden" name="postSuccNum" th:value="${0}">
+                            <input type="hidden" name="enterId" th:value="${session.enterId}">
                         </div>
                         <p><input type="submit" class="submit" id="submit" value="保存"></p>
                     </fieldset>

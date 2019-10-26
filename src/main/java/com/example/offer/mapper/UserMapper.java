@@ -36,5 +36,7 @@ public interface UserMapper {
 
     int updateByPrimaryKeySelective(User record);
 
+    List<User> findAllUser();
+
     int updateByPrimaryKey(User record);
 }

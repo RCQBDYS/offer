@@ -49,4 +49,13 @@ public class WorkInforController {
         modelMap.addAttribute("skill",interSkill);
         return "interSkillLook";
     }
+
+    @RequestMapping("/InterviewSkillSearch")
+    public String InterviewSkillSeach(String keyword,ModelMap modelMap){
+        List<InterSkill> list = new ArrayList<>();
+        System.out.println("keyword:"+keyword);
+        list = interSkillServiiceImpl.seacher(keyword);
+        modelMap.addAttribute("interSkillList",list);
+        return "interviewSkill";
+    }
 }

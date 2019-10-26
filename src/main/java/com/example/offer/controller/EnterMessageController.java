@@ -9,11 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -34,7 +32,7 @@ public class EnterMessageController {
     Logger logger = LoggerFactory.getLogger(userController.class);
 
 
-    /*跳转至企业信息修改*/
+    /*跳转至企业信息修改页面*/
     @GetMapping("/enMessageList/{userId}")
     public String enMessageList(@PathVariable("userId") Long userId, Model model){
         logger.info("userId= " + userId);
@@ -43,20 +41,24 @@ public class EnterMessageController {
         return "enMessageEdit";
     }
 
-    /*企业信息的显示*/
-    @GetMapping("/enMessageListTable/{userId}")
-    public String enMessageListTable(@PathVariable("userId") Long userId,Model model){
-        logger.info("Table userId= " + userId);
+    /*企业信息的显示页面*/
+    @GetMapping("/enMessageListTable")
+    public String enMessageListTable(Model model,HttpSession session){
+        Long userId = Long.parseLong(String.valueOf(session.getAttribute("userId")));
+        logger.info("userId"+ userId);
         EnterpriseMessage enterpriseMessage = messageService.selectUserId(userId);
         model.addAttribute(enterpriseMessage);
         return "enMessage";
     }
 
     /*显示公司的招聘信息*/
-    @GetMapping("/postMessage/{userId}")
-    public String toPagePost(@PathVariable("userId") Long userId, Model model){
-        logger.info("post userId = " + userId);
+    @RequestMapping("/postMessage")
+    public String toPagePost(Model model,HttpSession session){
+        Long userId = Long.parseLong(String.valueOf(session.getAttribute("userId")));
         List<PostMessage> postMessageList = postService.listAll(userId);
+        EnterpriseMessage enterpriseMessage = messageService.selectUserId(userId);
+        logger.info("enterId"+enterpriseMessage.getEnterId());
+        session.setAttribute("enterId",enterpriseMessage.getEnterId());
         logger.info("postMessage" + postMessageList);
         model.addAttribute("postMessageList",postMessageList);
         return "postMessage";
@@ -67,20 +69,20 @@ public class EnterMessageController {
     public String editMessage(EnterpriseMessage enterpriseMessage){
         logger.info(enterpriseMessage.toString());
         messageService.update(enterpriseMessage);
-        return "index";
+        return "redirect:/enMessageListTable";
     }
 
-    /*招聘岗位信息的查询*/
-
-    @PostMapping("/search/message/{userId}")
-    public String search(String keyword,Model model,@PathVariable("userId") Long userId){
+    /*招聘岗位信息的查询在没有keyword时显示全部页面*/
+    @PostMapping("/search/message")
+    public String search(String keyword,Model model,HttpSession session){
+        Long userId = Long.parseLong(String.valueOf(session.getAttribute("userId")));
         List<PostMessage> postMessageList = postService.queryByKeyword(keyword,userId);
         logger.info("postMessageSearch = " + postMessageList);
         model.addAttribute("postMessageList",postMessageList);
         return "postMessage";
     }
 
-    /*招聘岗位信息的具体显示*/
+    /*招聘岗位信息的具体显示同时也是修改页面*/
     @GetMapping("/oneself/{postId}")
     public String postMessageEdit(@PathVariable("postId") Long postId,Model model){
         PostMessage postMessage = postService.oneMessage(postId);
@@ -88,18 +90,19 @@ public class EnterMessageController {
         return "postMessageEdit";
     }
 
+
     /*招聘信息的修改*/
     @PostMapping("/oneselfMessageEdit")
     public String oneselfMessageEdit(PostMessage postMessage){
         logger.info("postMessage = " + postMessage);
         postService.update(postMessage);
-        return "index";
+        return "redirect:/postMessage";
     }
     /*删除招聘信息*/
     @DeleteMapping("/delete/{postId}")
     public String deleteMessage(@PathVariable("postId") Long postId){
         postService.delete(postId);
-        return "index";
+        return "redirect:/postMessage";
     }
 
     /*跳转至企业添加页面*/
@@ -108,14 +111,23 @@ public class EnterMessageController {
         return "postMessageAdd";
     }
 
-    /*企业添加*/
+    /*企业岗位信息的添加*/
     @PostMapping("/postMessageSave")
     public String save(PostMessage postMessage){
         logger.info("添加="+postMessage);
         postService.save(postMessage);
-        return "index";
+        return "redirect:/postMessage";
     }
 
-
+    //管理企业
+    @GetMapping("/enters/{userId}")
+    public String findAllEnterp(@PathVariable("userId") Long userId, Model model){
+        System.out.println(userId);
+        logger.info("post userId = " + userId);
+        List<EnterpriseMessage> eList = messageService.findAllEnterp();
+        logger.info("postMessage" + eList);
+        model.addAttribute("elist",eList);
+        return "entermanage";
+    }
 
 }
