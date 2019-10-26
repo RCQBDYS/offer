@@ -2,33 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c79d485-6425-488c-9556-3d9aedb8d372" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Map.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Map2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/controller/DataCountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/entermanage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/managelist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/postCount.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/usermanage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/controller/EnterMessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/controller/EnterMessageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/controller/PostSearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/controller/PostSearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/controller/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/controller/UserInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/controller/userController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/controller/userController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/mapper/EnterpriseMessageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/mapper/EnterpriseMessageMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/mapper/PostMessageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/mapper/PostMessageMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/model/PostMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/model/PostMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/service/EMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/service/EMessageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/EMessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/EMessageServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/PostServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EnterpriseMessageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/EnterpriseMessageMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PostMessageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PostMessageMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/postMessage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/postMessage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/postMessageAdd.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/postMessageAdd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/postMessageEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/postMessageEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/postPut.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/postPut.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/postSearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/postSearch.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/offer/controller/EnterMessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/offer/controller/EnterMessageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/offer/controller/PostSearchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/offer/controller/PostSearchController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/offer/mapper/PostMessageMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/offer/mapper/PostMessageMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/offer/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/offer/service/PostService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/offer/service/impl/PostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/offer/service/impl/PostServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PostMessageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PostMessageMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/postMessage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/postMessage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/postMessageAdd.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/postMessageAdd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/postMessageEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/postMessageEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/postSearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/postSearch.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,46 +50,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/EnterMessageController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2610">
-              <caret line="99" column="5" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/PostSearchController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1860">
-              <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
-              <folding>
-                <element signature="e#2564#2565#0" expanded="true" />
-                <element signature="e#2588#2589#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="242">
+              <caret line="52" column="35" lean-forward="true" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/service/PostService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="32" column="31" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/PostServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="77" column="31" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
-              <folding>
-                <element signature="e#1835#1836#0" expanded="true" />
-                <element signature="e#1897#1898#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="404">
+              <caret line="94" column="11" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -100,64 +71,57 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="74" column="30" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
+            <state relative-caret-position="84">
+              <caret line="91" column="55" selection-start-line="91" selection-start-column="55" selection-end-line="91" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/mapper/PostMessageMapper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userinfo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="32" column="60" selection-start-line="32" selection-start-column="60" selection-end-line="32" selection-end-column="60" />
+            <state relative-caret-position="90">
+              <caret line="163" column="66" lean-forward="true" selection-start-line="163" selection-start-column="66" selection-end-line="163" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/postSearch.html">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/entermanage.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/managelist.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/postCount.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/postMessage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
-              <caret line="108" column="95" selection-start-line="108" selection-start-column="95" selection-end-line="108" selection-end-column="95" />
-              <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="384">
+              <caret line="113" column="125" selection-start-line="113" selection-start-column="125" selection-end-line="113" selection-end-column="125" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Map.html">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/model/PutPost.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="68" column="105" selection-start-line="68" selection-start-column="73" selection-end-line="68" selection-end-column="105" />
-              <folding>
-                <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Map2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-426">
-              <caret line="87" column="7" lean-forward="true" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/postPut.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="83" column="59" selection-start-line="83" selection-start-column="59" selection-end-line="83" selection-end-column="59" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/usermanage.html">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -176,26 +140,34 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/controller/UserInfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/controller/userController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/offer/controller/CVController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/service/EMessageService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/postMessageAdd.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/postMessageEdit.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/controller/EnterMessageController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/postMessage.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/postPut.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/service/PostService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/mapper/PostMessageMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/PostServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/PostMessageMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/postSearch.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/controller/PostSearchController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/Map.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/Map2.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/controller/DataCountController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/controller/EnterMessageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/controller/userController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/controller/UserInfoController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/mapper/EnterpriseMessageMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/mapper/PostMessageMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/model/PostMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/EMessageServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/PostServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/service/EMessageService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/service/PostService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/PostMessageMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/EnterpriseMessageMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/offer/controller/PostSearchController.java" />
       </list>
     </option>
   </component>
@@ -379,6 +351,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.offer.controller" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\IdeaProjects\offer2\src\main\resources\templates" />
       <recent name="G:\IdeaProjects\offer2\src\main\resources" />
@@ -446,6 +421,8 @@
       <workItem from="1571270330317" duration="4989000" />
       <workItem from="1571277817445" duration="24289000" />
       <workItem from="1571325720828" duration="3675000" />
+      <workItem from="1571356682344" duration="115000" />
+      <workItem from="1571356818297" duration="5560000" />
     </task>
     <task id="LOCAL-00001" summary="加了注册页面">
       <created>1570882001724</created>
@@ -496,11 +473,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571330067986</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="地图显示">
+      <created>1571356752708</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1571356752708</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45793000" />
+    <option name="totallyTimeSpent" value="51468000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -512,10 +496,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="-3" width="1285" height="685" extended-state="6" />
-    <editor active="true" />
+    <frame x="-3" y="-3" width="1285" height="685" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2574899" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1902834" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -597,7 +580,8 @@
     <MESSAGE value="企业模块整合好了" />
     <MESSAGE value="重新定向" />
     <MESSAGE value="可能有冲突" />
-    <option name="LAST_COMMIT_MESSAGE" value="可能有冲突" />
+    <MESSAGE value="地图显示" />
+    <option name="LAST_COMMIT_MESSAGE" value="地图显示" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -615,44 +599,13 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/invoice.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PutPostMapper.xml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/model/PostMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-570">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/CVController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3330">
-          <caret line="32" column="2" lean-forward="true" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/UserInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="53" column="24" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -688,13 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/service/EMessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/model/EnterpriseMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -702,38 +648,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/userController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="74" column="52" selection-start-line="74" selection-start-column="52" selection-end-line="74" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/postMessageAdd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="119" column="91" selection-start-line="119" selection-start-column="91" selection-end-line="119" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/EnterpriseMessageMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/mapper/EnterpriseMessageMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/postMessage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="113" column="125" selection-start-line="113" selection-start-column="125" selection-end-line="113" selection-end-column="125" />
         </state>
       </provider>
     </entry>
@@ -751,83 +669,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PostMessageMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="103" column="50" selection-start-line="103" selection-start-column="50" selection-end-line="103" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/postPut.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="83" column="59" selection-start-line="83" selection-start-column="59" selection-end-line="83" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/EnterMessageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2610">
-          <caret line="99" column="5" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/PostServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="77" column="31" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
-          <folding>
-            <element signature="e#1835#1836#0" expanded="true" />
-            <element signature="e#1897#1898#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="74" column="30" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/mapper/PostMessageMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="32" column="60" selection-start-line="32" selection-start-column="60" selection-end-line="32" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/service/PostService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="32" column="31" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/postSearch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="108" column="95" selection-start-line="108" selection-start-column="95" selection-end-line="108" selection-end-column="95" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/PostSearchController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1860">
-          <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
-          <folding>
-            <element signature="e#2564#2565#0" expanded="true" />
-            <element signature="e#2588#2589#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Map.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="2040">
           <caret line="68" column="105" selection-start-line="68" selection-start-column="73" selection-end-line="68" selection-end-column="105" />
           <folding>
             <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
@@ -835,13 +679,284 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/postPut.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2490">
+          <caret line="83" column="59" selection-start-line="83" selection-start-column="59" selection-end-line="83" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Map2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-426">
-          <caret line="87" column="7" lean-forward="true" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
+        <state relative-caret-position="-1386">
+          <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/adminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/CVController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/postSearch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="104" column="40" lean-forward="true" selection-start-line="104" selection-start-column="40" selection-end-line="104" selection-end-column="40" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/workedit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="2" selection-start-line="2" selection-end-line="116" selection-end-column="7" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/projectedit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3414">
+          <caret line="142" column="86" lean-forward="true" selection-start-line="142" selection-start-column="86" selection-end-line="142" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/DataCountController.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/EnterMessageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="130" column="5" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/userController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="153" column="5" selection-start-line="153" selection-start-column="5" selection-end-line="153" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/UserInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/mapper/EnterpriseMessageMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/mapper/PostMessageMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/model/PostMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+          <folding>
+            <element signature="e#647#648#0" expanded="true" />
+            <element signature="e#692#693#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#763#764#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
+            <element signature="e#842#843#0" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1107#1108#0" expanded="true" />
+            <element signature="e#1154#1155#0" expanded="true" />
+            <element signature="e#1192#1193#0" expanded="true" />
+            <element signature="e#1229#1230#0" expanded="true" />
+            <element signature="e#1262#1263#0" expanded="true" />
+            <element signature="e#1314#1315#0" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1397#1398#0" expanded="true" />
+            <element signature="e#1431#1432#0" expanded="true" />
+            <element signature="e#1486#1487#0" expanded="true" />
+            <element signature="e#1532#1533#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
+            <element signature="e#1608#1609#0" expanded="true" />
+            <element signature="e#1666#1667#0" expanded="true" />
+            <element signature="e#1716#1717#0" expanded="true" />
+            <element signature="e#1754#1755#0" expanded="true" />
+            <element signature="e#1788#1789#0" expanded="true" />
+            <element signature="e#1842#1843#0" expanded="true" />
+            <element signature="e#1888#1889#0" expanded="true" />
+            <element signature="e#1926#1927#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2014#2015#0" expanded="true" />
+            <element signature="e#2060#2061#0" expanded="true" />
+            <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#2123#2124#0" expanded="true" />
+            <element signature="e#2168#2169#0" expanded="true" />
+            <element signature="e#2204#2205#0" expanded="true" />
+            <element signature="e#2239#2240#0" expanded="true" />
+            <element signature="e#2269#2270#0" expanded="true" />
+            <element signature="e#2316#2317#0" expanded="true" />
+            <element signature="e#2354#2355#0" expanded="true" />
+            <element signature="e#2391#2392#0" expanded="true" />
+            <element signature="e#2423#2424#0" expanded="true" />
+            <element signature="e#2474#2475#0" expanded="true" />
+            <element signature="e#2516#2517#0" expanded="true" />
+            <element signature="e#2545#2546#0" expanded="true" />
+            <element signature="e#2572#2573#0" expanded="true" />
+            <element signature="e#2610#2611#0" expanded="true" />
+            <element signature="e#2642#2643#0" expanded="true" />
+            <element signature="e#2690#2691#0" expanded="true" />
+            <element signature="e#2723#2724#0" expanded="true" />
+            <element signature="e#2786#2787#0" expanded="true" />
+            <element signature="e#2830#2831#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/EMessageServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding>
+            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#908#909#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/PostServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="80" column="79" selection-start-line="80" selection-start-column="79" selection-end-line="80" selection-end-column="79" />
+          <folding>
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#1897#1898#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="31" column="69" selection-start-line="31" selection-start-column="69" selection-end-line="31" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/service/EMessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/service/PostService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PostMessageMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="101" column="11" selection-start-line="101" selection-start-column="11" selection-end-line="101" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/EnterpriseMessageMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="94" column="11" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/entermanage.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/managelist.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/usermanage.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="91" column="55" selection-start-line="91" selection-start-column="55" selection-end-line="91" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userinfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="163" column="66" lean-forward="true" selection-start-line="163" selection-start-column="66" selection-end-line="163" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/postCount.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/postMessage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="113" column="125" selection-start-line="113" selection-start-column="125" selection-end-line="113" selection-end-column="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/model/PutPost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/offer/controller/PostSearchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="52" column="35" lean-forward="true" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
         </state>
       </provider>
     </entry>

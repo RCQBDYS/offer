@@ -31,5 +31,5 @@ public interface PostService {
     List<PostMessage> selectPut(Long userId);
 
     List<PostMessage> searchPut(String keyword,Long userId);
-
+    List<PostMessage> findAllPost();
 }

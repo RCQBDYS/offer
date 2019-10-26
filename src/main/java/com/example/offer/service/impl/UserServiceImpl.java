@@ -6,6 +6,8 @@ import com.example.offer.service.userService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author wangshen
  * @date 2019/9/29 9:26
@@ -26,6 +28,8 @@ public class UserServiceImpl implements userService {
 
         return userMapper.insert(record);
     }
+
+    public List<User> findAllUser(){return userMapper.findAllUser();}
     public User check(String userName) {
         return  userMapper.check(userName);
     }
